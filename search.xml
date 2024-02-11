@@ -4,6 +4,45 @@
   
     
     <entry>
+      <title>ceshi</title>
+      <link href="/2024/02/11/ceshi/"/>
+      <url>/2024/02/11/ceshi/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>关于git提示warning:LF will be replaced by CRLF</title>
+      <link href="/2024/02/11/git-LF/"/>
+      <url>/2024/02/11/git-LF/</url>
+      
+        <content type="html"><![CDATA[<h2 id="换行符‘-n’和回车符‘-r’"><a href="#换行符‘-n’和回车符‘-r’" class="headerlink" title="换行符‘\n’和回车符‘\r’"></a>换行符‘\n’和回车符‘\r’</h2><ul><li>回车符就是回到一行的开头，用符号r表示，十进制ASCII代码是13，十六进制代码为0x0D，回车（return）；</li><li>换行符就是另起一行，用n符号表示，ASCII代码是10，十六制为0x0A， 换行（newline）。</li></ul><p>所以我们平时编写文件的回车符应该确切来说叫做回车换行符。</p><h2 id="应用情况"><a href="#应用情况" class="headerlink" title="应用情况"></a>应用情况</h2><ul><li>Dos和Windows平台： 使用回车（CR）和换行（LF）两个字符来结束一行，回车+换行(CR+LF)，即“\r\n”；</li><li>Mac 和 Linux平台：只使用换行（LF）一个字符来结束一行，即“\n”；</li><li>最早Mac每行结尾是回车CR 即’\r’，后mac os x 也投奔了 unix。</li></ul><p>许多 Windows 上的编辑器会悄悄把行尾的换行（LF）字符转换成回车（CR）和换行（LF），或在用户按下 Enter 键时，插入回车（CR）和换行（LF）两个字符。</p><h2 id="影响"><a href="#影响" class="headerlink" title="影响"></a>影响</h2><ul><li>一个直接后果是，Unix&#x2F;Mac系统下的文件在Windows里打开的话，所有文字会变成一行；</li><li>而Windows里的文件在Unix&#x2F;Mac下打开的话，在每行的结尾可能会多出一个^M符号。</li><li>Linux保存的文件在windows上用记事本看的话会出现黑点。</li></ul><p>这些问题都可以通过一定方式进行转换统一，例如，在linux下，命令unix2dos 是把linux文件格式转换成windows文件格式，命令dos2unix 是把windows格式转换成linux文件格式。</p><h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><h3 id="情况一："><a href="#情况一：" class="headerlink" title="情况一："></a>情况一：</h3><p>Git 可以在你提交时自动地把回车（CR）和换行（LF）转换成换行（LF），而在检出代码时把换行（LF）转换成回车（CR）和换行（LF）。 你可以用<code>git config --global core.autocrlf true</code> 来打开此项功能。 如果是在 Windows 系统上，把它设置成 true，这样在检出代码时，换行会被转换成回车和换行：</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#提交时转换为LF，检出时转换为CRLF</span></span><br><span class="line">$ git config --<span class="keyword">global</span> core.autocrlf <span class="literal">true</span></span><br></pre></td></tr></table></figure><h3 id="情况二："><a href="#情况二：" class="headerlink" title="情况二："></a>情况二：</h3><p>如果使用以换行（LF）作为行结束符的 Linux 或 Mac，你不需要 Git 在检出文件时进行自动的转换。然而当一个以回车（CR）和换行（LF）作为行结束符的文件不小心被引入时，你肯定想让 Git 修正。 所以，你可以把 core.autocrlf 设置成 input 来告诉 Git 在提交时把回车和换行转换成换行，检出时不转换：（这样在 Windows 上的检出文件中会保留回车和换行，而在 Mac 和 Linux 上，以及版本库中会保留换行。）</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#提交时转换为LF，检出时不转换</span></span><br><span class="line">$ git config --<span class="keyword">global</span> core.autocrlf input</span><br></pre></td></tr></table></figure><h3 id="情况三："><a href="#情况三：" class="headerlink" title="情况三："></a>情况三：</h3><p>如果你是 Windows 程序员，且正在开发仅运行在 Windows 上的项目，可以设置 false 取消此功能，把回车保留在版本库中：</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#提交检出均不转换</span></span><br><span class="line">$ git config --<span class="keyword">global</span> core.autocrlf <span class="literal">false</span></span><br></pre></td></tr></table></figure><h3 id="你也可以在文件提交时进行safecrlf检查"><a href="#你也可以在文件提交时进行safecrlf检查" class="headerlink" title="你也可以在文件提交时进行safecrlf检查"></a>你也可以在文件提交时进行safecrlf检查</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#拒绝提交包含混合换行符的文件</span></span><br><span class="line">git config --<span class="keyword">global</span> core.safecrlf <span class="literal">true</span>   </span><br><span class="line"></span><br><span class="line"><span class="meta">#允许提交包含混合换行符的文件</span></span><br><span class="line">git config --<span class="keyword">global</span> core.safecrlf <span class="literal">false</span>   </span><br><span class="line"></span><br><span class="line"><span class="meta">#提交包含混合换行符的文件时给出警告</span></span><br><span class="line">git config --<span class="keyword">global</span> core.safecrlf warn</span><br></pre></td></tr></table></figure><h3 id="通俗解释"><a href="#通俗解释" class="headerlink" title="通俗解释"></a>通俗解释</h3><hr><ul><li>git 的 Windows 客户端基本都会默认设置 core.autocrlf&#x3D;true，设置core.autocrlf&#x3D;true, 只要保持工作区都是纯 CRLF 文件，编辑器用 CRLF 换行，就不会出现警告了；</li><li>Linux 最好不要设置 core.autocrlf，因为这个配置算是为 Windows 平台定制；</li><li>Windows 上设置 core.autocrlf&#x3D;false，仓库里也没有配置 .gitattributes，很容易引入 CRLF 或者混合换行符（Mixed Line Endings，一个文件里既有 LF 又有CRLF）到版本库，这样就可能产生各种奇怪的问题。</li></ul><p>来源：<a href="https://www.jianshu.com/p/450cd21b36a4">关于git提示“warning: LF will be replaced by CRLF”终极解答 - 简书 (jianshu.com)</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>page</title>
+      <link href="/2024/02/11/page/"/>
+      <url>/2024/02/11/page/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计算机二级考试安装</title>
       <link href="/2024/02/10/ms-c/"/>
       <url>/2024/02/10/ms-c/</url>

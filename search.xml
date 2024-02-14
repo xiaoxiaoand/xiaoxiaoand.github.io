@@ -11,6 +11,39 @@
         <content type="html"><![CDATA[<p>Markdown的基础语法简单描述，忘记了就看一看吧。</p><p>来源：<a href="https://markdown.com.cn/">Markdown 官方教程</a></p><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><table><thead><tr><th>元素</th><th>Markdown 语法</th></tr></thead><tbody><tr><td>标题（Heading）</td><td><code># H1  </code><br><code>## H2   </code><br><code>### H3</code></td></tr><tr><td>粗体（Bold）</td><td><code>**bold text**</code></td></tr><tr><td>斜体（Italic）</td><td><code>*italicized text*</code></td></tr><tr><td>引用块（Blockquote）</td><td><code>&gt; blockquote</code></td></tr><tr><td>有序列表（Ordered List）</td><td><code>1. First item </code><br><code>2. Second item  </code><br><code>3. Third item</code></td></tr><tr><td>无序列表（Unordered List）</td><td><code>- First item</code><br><code>- Second item</code><br><code>- Third item</code></td></tr><tr><td>代码（Code）</td><td><code>`code`</code></td></tr><tr><td>分隔线（Horizontal Rule）</td><td><code>---</code></td></tr><tr><td>链接（Link）</td><td><code>[title](https://www.example.com)</code></td></tr><tr><td>图片（Image）</td><td><code>![alt text](image.jpg)</code></td></tr></tbody></table><h2 id="扩展语法"><a href="#扩展语法" class="headerlink" title="扩展语法"></a>扩展语法</h2><table><thead><tr><th>元素</th><th>Markdown 语法</th></tr></thead><tbody><tr><td>表格（Table）</td><td>表格部分渲染有问题,本文最下方单独列出</td></tr><tr><td>代码块（Fenced Code Block）</td><td><code>```   &#123;     &quot;firstName&quot;: &quot;John&quot;,     &quot;lastName&quot;: &quot;Smith&quot;,     &quot;age&quot;: 25   &#125;   ```</code></td></tr><tr><td>脚注（Footnote</td><td>Here’s a sentence with a footnote. <code>[^1]</code> <br><code>[^1]</code>: This is the footnote.</td></tr><tr><td>标题编号（Heading ID）</td><td><code> ### My Great Heading &#123;#custom-id&#125;</code></td></tr><tr><td>定义列表（Definition List）</td><td><code>term</code><br><code>: definition</code></td></tr><tr><td>删除线（Strikethrough）</td><td><code>~~The world is flat.~~</code></td></tr><tr><td>任务列表（Task List）</td><td><code>- [x] Write the press release  </code><br><code>- [ ] Update the website</code>   <br><code>- [ ] Contact the media</code></td></tr></tbody></table><p>下面是一个表格：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| Syntax      | Description |</span><br><span class="line">| ----------- | ----------- |</span><br><span class="line">| Header      | Title       |</span><br><span class="line">| Paragraph   | Text        |</span><br></pre></td></tr></table></figure><table><thead><tr><th>Syntax</th><th>Description</th></tr></thead><tbody><tr><td>Header</td><td>Title</td></tr><tr><td>Paragraph</td><td>Text</td></tr></tbody></table><p>对齐方式：左&#x2F;中&#x2F;右</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">| Syntax      | Description | Test Text     |</span><br><span class="line">| :---        |    :----:   |          ---: |</span><br><span class="line">| Header      | Title       | Here&#x27;s this   |</span><br><span class="line">| Paragraph   | Text        | And more      |</span><br></pre></td></tr></table></figure><table><thead><tr><th align="left">Syntax</th><th align="center">Description</th><th align="right">Test Text</th></tr></thead><tbody><tr><td align="left">Header</td><td align="center">Title</td><td align="right">Here’s this</td></tr><tr><td align="left">Paragraph</td><td align="center">Text</td><td align="right">And more</td></tr></tbody></table>]]></content>
       
       
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Markdown </tag>
+            
+            <tag> 语法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>data</title>
+      <link href="/2024/02/12/data/"/>
+      <url>/2024/02/12/data/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> diary </category>
+          
+      </categories>
+      
       
     </entry>
     
@@ -24,6 +57,22 @@
         <content type="html"><![CDATA[<h2 id="换行符‘-n’和回车符‘-r’"><a href="#换行符‘-n’和回车符‘-r’" class="headerlink" title="换行符‘\n’和回车符‘\r’"></a>换行符‘\n’和回车符‘\r’</h2><ul><li>回车符就是回到一行的开头，用符号r表示，十进制ASCII代码是13，十六进制代码为0x0D，回车（return）；</li><li>换行符就是另起一行，用n符号表示，ASCII代码是10，十六制为0x0A， 换行（newline）。</li></ul><p>所以我们平时编写文件的回车符应该确切来说叫做回车换行符。</p><h2 id="应用情况"><a href="#应用情况" class="headerlink" title="应用情况"></a>应用情况</h2><ul><li>Dos和Windows平台： 使用回车（CR）和换行（LF）两个字符来结束一行，回车+换行(CR+LF)，即“\r\n”；</li><li>Mac 和 Linux平台：只使用换行（LF）一个字符来结束一行，即“\n”；</li><li>最早Mac每行结尾是回车CR 即’\r’，后mac os x 也投奔了 unix。</li></ul><p>许多 Windows 上的编辑器会悄悄把行尾的换行（LF）字符转换成回车（CR）和换行（LF），或在用户按下 Enter 键时，插入回车（CR）和换行（LF）两个字符。</p><h2 id="影响"><a href="#影响" class="headerlink" title="影响"></a>影响</h2><ul><li>一个直接后果是，Unix&#x2F;Mac系统下的文件在Windows里打开的话，所有文字会变成一行；</li><li>而Windows里的文件在Unix&#x2F;Mac下打开的话，在每行的结尾可能会多出一个^M符号。</li><li>Linux保存的文件在windows上用记事本看的话会出现黑点。</li></ul><p>这些问题都可以通过一定方式进行转换统一，例如，在linux下，命令unix2dos 是把linux文件格式转换成windows文件格式，命令dos2unix 是把windows格式转换成linux文件格式。</p><h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><h3 id="情况一："><a href="#情况一：" class="headerlink" title="情况一："></a>情况一：</h3><p>Git 可以在你提交时自动地把回车（CR）和换行（LF）转换成换行（LF），而在检出代码时把换行（LF）转换成回车（CR）和换行（LF）。 你可以用<code>git config --global core.autocrlf true</code> 来打开此项功能。 如果是在 Windows 系统上，把它设置成 true，这样在检出代码时，换行会被转换成回车和换行：</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#提交时转换为LF，检出时转换为CRLF</span></span><br><span class="line">$ git config --<span class="keyword">global</span> core.autocrlf <span class="literal">true</span></span><br></pre></td></tr></table></figure><h3 id="情况二："><a href="#情况二：" class="headerlink" title="情况二："></a>情况二：</h3><p>如果使用以换行（LF）作为行结束符的 Linux 或 Mac，你不需要 Git 在检出文件时进行自动的转换。然而当一个以回车（CR）和换行（LF）作为行结束符的文件不小心被引入时，你肯定想让 Git 修正。 所以，你可以把 core.autocrlf 设置成 input 来告诉 Git 在提交时把回车和换行转换成换行，检出时不转换：（这样在 Windows 上的检出文件中会保留回车和换行，而在 Mac 和 Linux 上，以及版本库中会保留换行。）</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#提交时转换为LF，检出时不转换</span></span><br><span class="line">$ git config --<span class="keyword">global</span> core.autocrlf input</span><br></pre></td></tr></table></figure><h3 id="情况三："><a href="#情况三：" class="headerlink" title="情况三："></a>情况三：</h3><p>如果你是 Windows 程序员，且正在开发仅运行在 Windows 上的项目，可以设置 false 取消此功能，把回车保留在版本库中：</p><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#提交检出均不转换</span></span><br><span class="line">$ git config --<span class="keyword">global</span> core.autocrlf <span class="literal">false</span></span><br></pre></td></tr></table></figure><h3 id="你也可以在文件提交时进行safecrlf检查"><a href="#你也可以在文件提交时进行safecrlf检查" class="headerlink" title="你也可以在文件提交时进行safecrlf检查"></a>你也可以在文件提交时进行safecrlf检查</h3><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#拒绝提交包含混合换行符的文件</span></span><br><span class="line">git config --<span class="keyword">global</span> core.safecrlf <span class="literal">true</span>   </span><br><span class="line"></span><br><span class="line"><span class="meta">#允许提交包含混合换行符的文件</span></span><br><span class="line">git config --<span class="keyword">global</span> core.safecrlf <span class="literal">false</span>   </span><br><span class="line"></span><br><span class="line"><span class="meta">#提交包含混合换行符的文件时给出警告</span></span><br><span class="line">git config --<span class="keyword">global</span> core.safecrlf warn</span><br></pre></td></tr></table></figure><h3 id="通俗解释"><a href="#通俗解释" class="headerlink" title="通俗解释"></a>通俗解释</h3><hr><ul><li>git 的 Windows 客户端基本都会默认设置 core.autocrlf&#x3D;true，设置core.autocrlf&#x3D;true, 只要保持工作区都是纯 CRLF 文件，编辑器用 CRLF 换行，就不会出现警告了；</li><li>Linux 最好不要设置 core.autocrlf，因为这个配置算是为 Windows 平台定制；</li><li>Windows 上设置 core.autocrlf&#x3D;false，仓库里也没有配置 .gitattributes，很容易引入 CRLF 或者混合换行符（Mixed Line Endings，一个文件里既有 LF 又有CRLF）到版本库，这样就可能产生各种奇怪的问题。</li></ul><p>来源：<a href="https://www.jianshu.com/p/450cd21b36a4">关于git提示“warning: LF will be replaced by CRLF”终极解答 - 简书 (jianshu.com)</a></p>]]></content>
       
       
+      <categories>
+          
+          <category> 解决问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 报错 </tag>
+            
+            <tag> git </tag>
+            
+            <tag> LF </tag>
+            
+        </tags>
       
     </entry>
     
@@ -37,6 +86,18 @@
         <content type="html"><![CDATA[<h2 id="配置hexo"><a href="#配置hexo" class="headerlink" title="配置hexo"></a>配置hexo</h2><p>修改配置文件<code>_config.yml</code>文件, 将 post_asset_folder 设置为true, 这样每次<strong>new 生成一个文章时都会在当前目录下生成一个同名的文件夹</strong></p><img src="/2024/02/11/image-rout/image-20240211224925166.png" class="" title="image-20240211224925166"><img src="/2024/02/11/image-rout/image-20240211231118860.png" class="" title="image-20240211231118860"><h2 id="设置typora"><a href="#设置typora" class="headerlink" title="设置typora"></a>设置typora</h2><p>这样配置插入图片会在当前目录<strong>生成一个同名的文件夹</strong>，并且图片路径会是<code>文件夹/图片名.jpg</code></p><img src="/2024/02/11/image-rout/image-20240211230403971.png" class="" title="image-20240211230403971"><img src="/2024/02/11/image-rout/image-20240211231349143.png" class="" title="image-20240211231349143"><p>所以生成文件可以采用<code>hexo new &quot;标签&quot;</code>，也可以直接在Typora中新建。因为都可以生成图片文件夹。</p><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-img --save</span><br></pre></td></tr></table></figure><p>[插件项目地址]<a href="https://github.com/yiyungent/hexo-asset-img">https://github.com/yiyungent/hexo-asset-img</a></p><h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>这样本地Typora可以查看图片，部署后图片也是生效的。</p>]]></content>
       
       
+      <categories>
+          
+          <category> 解决问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+        </tags>
       
     </entry>
     
@@ -50,6 +111,18 @@
         <content type="html"><![CDATA[<p>安装包来源于网络，本页面只提供教程，教程具有一定时效性和系统环境差异。</p><h2 id="下载并解压压缩包"><a href="#下载并解压压缩包" class="headerlink" title="下载并解压压缩包"></a>下载并解压压缩包</h2><p>*如果出现如下问题。点击右下角的Windows安全中心。进入Windows安全中心，按照图片操作。然后在点击重试。</p><img src="/2024/02/10/ms-c/image-20240210183050756.png" class="" title="image-20240210183050756"><img src="/2024/02/10/ms-c/image-20240210183223144.png" class="" title="image-20240210183223144"><img src="/2024/02/10/ms-c/image-20240210183309837.png" class="" title="image-20240210183309837"><img src="/2024/02/10/ms-c/image-20240210183351030.png" class="" title="image-20240210183351030"><p>*压缩包内有破解文件，解压后会被杀毒软件识别然后直接删除掉。（遇到不信任的文件一定不要运行）</p><h2 id="压缩包内容如下"><a href="#压缩包内容如下" class="headerlink" title="压缩包内容如下"></a>压缩包内容如下</h2><img src="/2024/02/10/ms-c/image-20240210174322210.png" class="" title="image-20240210174322210"><h2 id="打开-二级C语言-24年3月-exe-文件，点击下一步"><a href="#打开-二级C语言-24年3月-exe-文件，点击下一步" class="headerlink" title="打开 二级C语言 24年3月.exe  文件，点击下一步"></a>打开 二级C语言 24年3月.exe  文件，点击下一步</h2><p>*没展示的页面默认无修改，直接下一步</p><img src="/2024/02/10/ms-c/image-20240210174811564.png" class="" title="image-20240210174811564"><h2 id="选择想要安装的目录"><a href="#选择想要安装的目录" class="headerlink" title="选择想要安装的目录"></a>选择想要安装的目录</h2><p>*路径中不要带中文，后面会用到这个路径，请记住它</p><img src="/2024/02/10/ms-c/image-20240210174831692.png" class="" title="image-20240210174831692"><h2 id="等待安装完成。"><a href="#等待安装完成。" class="headerlink" title="等待安装完成。"></a>等待安装完成。</h2><img src="/2024/02/10/ms-c/image-20240210175047568.png" class="" title="image-20240210175047568"><h2 id="按照-使用说明-txt-文件进行操作"><a href="#按照-使用说明-txt-文件进行操作" class="headerlink" title="按照 使用说明.txt  文件进行操作"></a>按照 使用说明.txt  文件进行操作</h2><p>*使用说明.txt:将 dnlib.dll、UnblockRegdll_WYKB.exe 两个文件放入无忧考吧安装目录，提前退出（无忧考吧主程序）并运行UnblockRegdll_WYKB.exe文件，点击Patch，双击打开无忧考吧主程序，点击离线激活，按照UnblockRegdll_WYKB.exe内的说明获得激活码。</p><h3 id="复制解压后文件中的如下2个文件到软件的安装目录中"><a href="#复制解压后文件中的如下2个文件到软件的安装目录中" class="headerlink" title="复制解压后文件中的如下2个文件到软件的安装目录中"></a>复制解压后文件中的如下2个文件到软件的安装目录中</h3><img src="/2024/02/10/ms-c/image-20240210175458081.png" class="" title="image-20240210175458081"><img src="/2024/02/10/ms-c/image-20240210180518731.png" class="" title="image-20240210180518731"><h3 id="运行-UnblockRegdll-WYKB-exe-文件，点击Patch按钮"><a href="#运行-UnblockRegdll-WYKB-exe-文件，点击Patch按钮" class="headerlink" title="运行 UnblockRegdll_WYKB.exe 文件，点击Patch按钮"></a>运行 UnblockRegdll_WYKB.exe 文件，点击Patch按钮</h3><img src="/2024/02/10/ms-c/image-20240210184905746.png" class="" title="image-20240210184905746"><h3 id="运行主程序"><a href="#运行主程序" class="headerlink" title="运行主程序"></a>运行主程序</h3><p>*在桌面有图标，如下图，运行它即可</p><img src="/2024/02/10/ms-c/image-20240210185048493.png" class="" title="image-20240210185048493"><h3 id="运行后如下图，复制产品ID"><a href="#运行后如下图，复制产品ID" class="headerlink" title="运行后如下图，复制产品ID"></a>运行后如下图，复制产品ID</h3><img src="/2024/02/10/ms-c/image-20240210185241935.png" class="" title="image-20240210185241935"><h3 id="粘贴到下图位置"><a href="#粘贴到下图位置" class="headerlink" title="粘贴到下图位置"></a>粘贴到下图位置</h3><img src="/2024/02/10/ms-c/image-20240210185408441.png" class="" title="image-20240210185408441"><h3 id="点击keygen，框内会生成激活码"><a href="#点击keygen，框内会生成激活码" class="headerlink" title="点击keygen，框内会生成激活码"></a>点击keygen，框内会生成激活码</h3><img src="/2024/02/10/ms-c/image-20240210185559787.png" class="" title="image-20240210185559787"><h3 id="复制激活码，到下图位置，点击激活产品。激活后如下"><a href="#复制激活码，到下图位置，点击激活产品。激活后如下" class="headerlink" title="复制激活码，到下图位置，点击激活产品。激活后如下"></a>复制激活码，到下图位置，点击激活产品。激活后如下</h3><img src="/2024/02/10/ms-c/image-20240210185721526.png" class="" title="image-20240210185721526"><img src="/2024/02/10/ms-c/image-20240210185815146.png" class="" title="image-20240210185815146"><p>为了安全，破解完成后，删除刚刚复制到主程序中的2个文件，dnlib.dll和UnblockRegdll_WYKB.exe，当然一开始的解压文件也可以删除了。只留下一个压缩包用于备份就可以了。</p><h2 id="演示效果"><a href="#演示效果" class="headerlink" title="演示效果"></a>演示效果</h2><p>随便选择一个模块，如综合练习，选择一套题目，点击开始练习</p><img src="/2024/02/10/ms-c/image-20240210185905444.png" class="" title="image-20240210185905444"><h3 id="做题界面如下-题目分为4个项目，我选择程序填空作为演示。点击程序填空，打开考生文件夹。"><a href="#做题界面如下-题目分为4个项目，我选择程序填空作为演示。点击程序填空，打开考生文件夹。" class="headerlink" title="做题界面如下,题目分为4个项目，我选择程序填空作为演示。点击程序填空，打开考生文件夹。"></a>做题界面如下,题目分为4个项目，我选择程序填空作为演示。点击程序填空，打开考生文件夹。</h3><p>1.选择题2.程序填空3.程序修改4.程序设计</p><img src="/2024/02/10/ms-c/image-20240210190331811.png" class="" title="image-20240210190331811"><h3 id="考试文件夹目录如下"><a href="#考试文件夹目录如下" class="headerlink" title="考试文件夹目录如下"></a>考试文件夹目录如下</h3><img src="/2024/02/10/ms-c/image-20240210190254660.png" class="" title="image-20240210190254660"><h3 id="进入modi1，可以看到MODI1-C文件，这个就是题目源文件，"><a href="#进入modi1，可以看到MODI1-C文件，这个就是题目源文件，" class="headerlink" title="进入modi1，可以看到MODI1.C文件，这个就是题目源文件，"></a>进入modi1，可以看到MODI1.C文件，这个就是题目源文件，</h3><img src="/2024/02/10/ms-c/image-20240210190837181.png" class="" title="image-20240210190837181"><h3 id="因为我安装了vc-2010，我只需要打开modi1-sln-文件"><a href="#因为我安装了vc-2010，我只需要打开modi1-sln-文件" class="headerlink" title="因为我安装了vc++2010，我只需要打开modi1.sln 文件"></a>因为我安装了vc++2010，我只需要打开modi1.sln 文件</h3><img src="/2024/02/10/ms-c/image-20240210192336747.png" class="" title="image-20240210192336747"><img src="/2024/02/10/ms-c/image-20240210192724887.png" class="" title="image-20240210192724887"><h3 id="打开后如下，只需要按照题目修改绿色区域的错误。"><a href="#打开后如下，只需要按照题目修改绿色区域的错误。" class="headerlink" title="打开后如下，只需要按照题目修改绿色区域的错误。"></a>打开后如下，只需要按照题目修改绿色区域的错误。</h3><p>运行一下，看一下报错来修改语法错误，在按照题意修改逻辑错误。做法仁者见仁。只要能运行且满足题意。</p><img src="/2024/02/10/ms-c/image-20240210191822087.png" class="" title="image-20240210191822087"><img src="/2024/02/10/ms-c/image-20240210192835001.png" class="" title="image-20240210192835001"><h3 id="保存关闭，选择右上角交卷。有显示成绩，说明成功。其他功能自己可以去尝试。"><a href="#保存关闭，选择右上角交卷。有显示成绩，说明成功。其他功能自己可以去尝试。" class="headerlink" title="保存关闭，选择右上角交卷。有显示成绩，说明成功。其他功能自己可以去尝试。"></a>保存关闭，选择右上角交卷。有显示成绩，说明成功。其他功能自己可以去尝试。</h3><img src="/2024/02/10/ms-c/image-20240210193057402.png" class="" title="image-20240210193057402"><h2 id="引用一篇vc-2010下载地址"><a href="#引用一篇vc-2010下载地址" class="headerlink" title="引用一篇vc++2010下载地址"></a>引用一篇vc++2010下载地址</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/m0_54780048/article/details/121660644</span><br></pre></td></tr></table></figure>]]></content>
       
       
+      <categories>
+          
+          <category> 安装教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机二级考试 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -63,6 +136,20 @@
         <content type="html"><![CDATA[<h2 id="npm镜像源切换指令"><a href="#npm镜像源切换指令" class="headerlink" title="npm镜像源切换指令"></a>npm镜像源切换指令</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">npm</span> set registry https://registry.npm.taobao.org/ </span><br></pre></td></tr></table></figure><h2 id="配置为淘宝源"><a href="#配置为淘宝源" class="headerlink" title="配置为淘宝源"></a>配置为淘宝源</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">npm</span> config set registry http://registry.npm.taobao.org/</span><br></pre></td></tr></table></figure><h2 id="还原默认镜像"><a href="#还原默认镜像" class="headerlink" title="还原默认镜像"></a>还原默认镜像</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">npm</span> config set registry https://registry.npmjs.org</span><br></pre></td></tr></table></figure><h2 id="查看当前源"><a href="#查看当前源" class="headerlink" title="查看当前源"></a>查看当前源</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">npm</span> get registry</span><br></pre></td></tr></table></figure>]]></content>
       
       
+      <categories>
+          
+          <category> 解决问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> npm </tag>
+            
+            <tag> 镜像 </tag>
+            
+        </tags>
       
     </entry>
     

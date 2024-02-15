@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>git大小写不敏感问题</title>
+      <link href="/2024/02/15/git-Aa/"/>
+      <url>/2024/02/15/git-Aa/</url>
+      
+        <content type="html"><![CDATA[<h2 id="git大小写不敏感问题"><a href="#git大小写不敏感问题" class="headerlink" title="git大小写不敏感问题"></a>git大小写不敏感问题</h2><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>建立了一个CNAME文件，最开始是小写部署到git上发现生效不了，需要大写，改成大写后再次上传后发现没有用，还是小写。显示这个文件最后修改日期是之前的。百度方法</p><h2 id="尝试解决"><a href="#尝试解决" class="headerlink" title="尝试解决"></a>尝试解决</h2><p>下面三种只用执行一种</p><h3 id="终端修改"><a href="#终端修改" class="headerlink" title="终端修改"></a>终端修改</h3><p>修改git配置,<code>ignorecase 表示 忽略大小写， true 和 false 分别表示为 开启 与 关闭</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config core.ignorecase false</span><br></pre></td></tr></table></figure><h3 id="全局添加"><a href="#全局添加" class="headerlink" title="全局添加"></a>全局添加</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.ignorecase false</span><br></pre></td></tr></table></figure><h4 id="文件修改"><a href="#文件修改" class="headerlink" title="文件修改"></a>文件修改</h4><p>修改 C:\Users\你的用户名\.gitconfig ，在里面添加</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[core]</span><br><span class="line">    ignorecase = false</span><br></pre></td></tr></table></figure><h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>还是没有用，最后解决方法是：</p><p>删除本地的CNAME，重新部署，让git上的那个小写也被删除。然后再在本地重新新建一个大写的文件，重新部署。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 解决问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+            <tag> 大小写 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Markdown基础语法</title>
       <link href="/2024/02/12/ToMarkdown/"/>
       <url>/2024/02/12/ToMarkdown/</url>
@@ -25,25 +52,6 @@
             <tag> 语法 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>data</title>
-      <link href="/2024/02/12/data/"/>
-      <url>/2024/02/12/data/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      <categories>
-          
-          <category> diary </category>
-          
-      </categories>
-      
       
     </entry>
     
@@ -157,8 +165,8 @@
     
     <entry>
       <title>Hello World</title>
-      <link href="/2024/02/08/hello-world/"/>
-      <url>/2024/02/08/hello-world/</url>
+      <link href="/2024/02/08/ahello-world/"/>
+      <url>/2024/02/08/ahello-world/</url>
       
         <content type="html"><![CDATA[<p>这是一个好的开始，不是吗？至少我来过。</p>]]></content>
       

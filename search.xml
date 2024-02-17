@@ -4,6 +4,91 @@
   
     
     <entry>
+      <title>标签外挂</title>
+      <link href="/2024/02/16/%E6%A0%87%E7%AD%BE%E5%A4%96%E6%8C%82/"/>
+      <url>/2024/02/16/%E6%A0%87%E7%AD%BE%E5%A4%96%E6%8C%82/</url>
+      
+        <content type="html"><![CDATA[<p>描述：在<code>Butterfly</code>主题中，还自带一些额外的组件提供更多功能和UI方面的强化。<br>它们并不是标准的<code>markdown</code>格式，所以被称为<code>标签外挂（Tag Plugins）</code>。<br>每个模块分为<code>显示效果</code>和<code>代码</code>两个部分。</p><h2 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h2><h3 id="显示效果"><a href="#显示效果" class="headerlink" title="显示效果"></a>显示效果</h3><div class="note no-icon modern"><p>默认 提示块标签</p></div><div class="note default no-icon modern"><p>default 提示块标签</p></div><div class="note primary no-icon modern"><p>primary 提示块标签</p></div><div class="note success no-icon modern"><p>success 提示块标签</p></div><div class="note info no-icon modern"><p>info 提示块标籤</p></div><div class="note warning no-icon modern"><p>warning 提示块标签</p></div><div class="note danger no-icon modern"><p>danger 提示块标签</p></div><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;% note no-icon modern %&#125;</span><br><span class="line">默认 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note default no-icon modern %&#125;</span><br><span class="line">default 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note primary no-icon modern %&#125;</span><br><span class="line">primary 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note success no-icon modern %&#125;</span><br><span class="line">success 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note info no-icon modern %&#125;</span><br><span class="line">info 提示块标籤</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note warning no-icon modern %&#125;</span><br><span class="line">warning 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% note danger no-icon modern %&#125;</span><br><span class="line">danger 提示块标签</span><br><span class="line">&#123;% endnote %&#125;</span><br></pre></td></tr></table></figure><h2 id="Gallery-相册图库"><a href="#Gallery-相册图库" class="headerlink" title="Gallery 相册图库"></a>Gallery 相册图库</h2><h3 id="显示效果-1"><a href="#显示效果-1" class="headerlink" title="显示效果"></a>显示效果</h3><div class="gallery-group-main"><figure class="gallery-group">  <img class="gallery-group-img no-lightbox" src='https://api.aqcoder.cn/today' alt="Group Image Gallery">  <figcaption>  <div class="gallery-group-name">壁纸</div>  <p>收藏的一些壁纸</p>  <a href='/gallery/wallpaper/'></a>  </figcaption>  </figure>  </div><h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;gallery-group-main&quot;&gt;</span><br><span class="line">&#123;% galleryGroup &#x27;壁纸&#x27; &#x27;收藏的一些壁纸&#x27; &#x27;/gallery/wallpaper/&#x27; https://api.aqcoder.cn/today %&#125;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure><h2 id="Gallery-相册"><a href="#Gallery-相册" class="headerlink" title="Gallery 相册"></a>Gallery 相册</h2><h3 id="显示效果-2"><a href="#显示效果-2" class="headerlink" title="显示效果"></a>显示效果</h3><div class="gallery-container" data-type="data" data-button="">      <div class="gallery-data">[]</div>      <div class="gallery-items">      </div>    </div><h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;% gallery %&#125;</span><br><span class="line">markdown 图片格式</span><br><span class="line">markdown 图片格式</span><br><span class="line">&#123;% endgallery %&#125;</span><br></pre></td></tr></table></figure><h2 id="选项卡（Tabs）"><a href="#选项卡（Tabs）" class="headerlink" title="选项卡（Tabs）"></a>选项卡（Tabs）</h2><h3 id="显示效果-3"><a href="#显示效果-3" class="headerlink" title="显示效果"></a>显示效果</h3><div class="tabs" id="标签一"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="标签一-1">第一个Tab</button><button type="button" class="tab " data-href="标签一-2">第二个Tab</button><button type="button" class="tab " data-href="标签一-3">第三个Tab</button></ul><div class="tab-contents"><div class="tab-item-content active" id="标签一-1"><p>这是第一块</p></div><div class="tab-item-content" id="标签一-2"><p>这是第二块</p></div><div class="tab-item-content" id="标签一-3"><p>这是第三块</p></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div><h3 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;% tabs 标签一 %&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab 第一个Tab --&gt;</span><br><span class="line">这是第一块</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab 第二个Tab --&gt;</span><br><span class="line">这是第二块</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&lt;!-- tab 第三个Tab --&gt;</span><br><span class="line">这是第三块</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line"></span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure><h2 id="折叠栏（Toggle）"><a href="#折叠栏（Toggle）" class="headerlink" title="折叠栏（Toggle）"></a>折叠栏（Toggle）</h2><h3 id="显示效果-4"><a href="#显示效果-4" class="headerlink" title="显示效果"></a>显示效果</h3><p>不带颜色</p><details class="toggle" ><summary class="toggle-button" style="">这是一个下拉隐藏</summary><div class="toggle-content"><p>这里隐藏了文字</p></div></details><p>带颜色</p><details class="toggle" style="border: 1px solid pink"><summary class="toggle-button" style="background-color: pink;">这是一个下拉隐藏</summary><div class="toggle-content"><p>这里隐藏了文字</p></div></details><h3 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;% hideToggle 这是一个下拉隐藏 %&#125;</span><br><span class="line">这里隐藏了文字</span><br><span class="line">&#123;% endhideToggle %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% hideToggle 这是一个下拉隐藏,pink%&#125;</span><br><span class="line">这里隐藏了文字</span><br><span class="line">&#123;% endhideToggle %&#125;</span><br></pre></td></tr></table></figure><h2 id="时间轴（timeline）"><a href="#时间轴（timeline）" class="headerlink" title="时间轴（timeline）"></a>时间轴（timeline）</h2><p>不带颜色</p><div class="timeline undefined"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>2022</p></div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>01-02</p></div></div><div class='timeline-item-content'><p>这是测试页面</p></div></div></div><p>带颜色</p><div class="timeline pink"><div class='timeline-item headline'><div class='timeline-item-title'><div class='item-circle'><p>2022</p></div></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>01-02</p></div></div><div class='timeline-item-content'><p>一</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>01-03</p></div></div><div class='timeline-item-content'><p>二</p></div></div><div class='timeline-item'><div class='timeline-item-title'><div class='item-circle'><p>01-03</p></div></div><div class='timeline-item-content'><p>三</p></div></div></div><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;% timeline 2022 %&#125;</span><br><span class="line">&lt;!-- timeline 01-02 --&gt;</span><br><span class="line">这是测试页面</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">&#123;% endtimeline %&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#123;% timeline 2022,pink %&#125;</span><br><span class="line">&lt;!-- timeline 01-02 --&gt;</span><br><span class="line">一</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">&lt;!-- timeline 01-03 --&gt;</span><br><span class="line">二</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">&lt;!-- timeline 01-03 --&gt;</span><br><span class="line">三</span><br><span class="line">&lt;!-- endtimeline --&gt;</span><br><span class="line">&#123;% endtimeline %&#125;</span><br></pre></td></tr></table></figure><!-- <div class="flink"><div class="flink-name">引用</div> <div class="flink-list">          <div class="flink-list-item">            <a href="null" title="a" target="_blank">              <div class="flink-item-icon">                <img class="no-lightbox" src="" onerror='this.onerror=null;this.src="/images/flink_error.png"' alt="a" />              </div>              <div class="flink-item-name">a</div>               <div class="flink-item-desc" title="null">null</div>            </a>          </div>          <div class="flink-list-item">            <a href="https://butterfly.js.org/posts/4aa8abbe/#%E6%A8%99%E7%B1%A4%E5%A4%96%E6%8E%9B%EF%BC%88Tag-Plugins%EF%BC%89" title="ac" target="_blank">              <div class="flink-item-icon">                <img class="no-lightbox" src="" onerror='this.onerror=null;this.src="/images/flink_error.png"' alt="ac" />              </div>              <div class="flink-item-name">ac</div>               <div class="flink-item-desc" title="官方的讲解">官方的讲解</div>            </a>          </div></div></div> --><div class="flink"><div class="flink-name">引用</div><div class="flink-desc">更详细的说明和用法请查看引用</div> <div class="flink-list">          <div class="flink-list-item">            <a href="https://blog.aqcoder.cn/posts/5dd3/#flink" title="枫叶" target="_blank">              <div class="flink-item-icon">                <img class="no-lightbox" src="null" onerror='this.onerror=null;this.src="/images/flink_error.png"' alt="枫叶" />              </div>              <div class="flink-item-name">枫叶</div>               <div class="flink-item-desc" title="更清晰的标签外挂详解">更清晰的标签外挂详解</div>            </a>          </div>          <div class="flink-list-item">            <a href="https://butterfly.js.org/posts/4aa8abbe/#%E6%A8%99%E7%B1%A4%E5%A4%96%E6%8E%9B%EF%BC%88Tag-Plugins%EF%BC%89" title="Butterfly" target="_blank">              <div class="flink-item-icon">                <img class="no-lightbox" src="null" onerror='this.onerror=null;this.src="/images/flink_error.png"' alt="Butterfly" />              </div>              <div class="flink-item-name">Butterfly</div>               <div class="flink-item-desc" title="官方的文档">官方的文档</div>            </a>          </div></div></div>]]></content>
+      
+      
+      <categories>
+          
+          <category> hexo </category>
+          
+          <category> Butterfly </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 标签外挂 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>计算机学习</title>
+      <link href="/2024/02/16/ToCom/"/>
+      <url>/2024/02/16/ToCom/</url>
+      
+        <content type="html"><![CDATA[<p>计算机科学涵盖广泛的领域，以下是一个简单的计算机科学学习路径目录，其中包含了一些主要的学习领域和主题。请注意，这只是一个基础的目录，你可以根据自己的兴趣和学习目标进行调整和扩展：</p><h3 id="1-编程基础"><a href="#1-编程基础" class="headerlink" title="1. 编程基础"></a>1. 编程基础</h3><ul><li>编程语言：选择一门编程语言，如Python、JavaScript、Java等。</li><li>基本语法：学习变量、数据类型、控制流程、函数等基础概念。</li></ul><h3 id="2-数据结构与算法"><a href="#2-数据结构与算法" class="headerlink" title="2. 数据结构与算法"></a>2. 数据结构与算法</h3><ul><li>数据结构：数组、链表、栈、队列、树、图等。</li><li>算法：排序、搜索、递归、动态规划等。</li></ul><h3 id="3-计算机网络"><a href="#3-计算机网络" class="headerlink" title="3. 计算机网络"></a>3. 计算机网络</h3><ul><li>网络基础：TCP&#x2F;IP、HTTP&#x2F;HTTPS、DNS等。</li><li>网络协议：了解常见的网络协议。</li><li>网络编程：Socket编程等。</li></ul><h3 id="4-数据库"><a href="#4-数据库" class="headerlink" title="4. 数据库"></a>4. 数据库</h3><ul><li>数据库基础：关系型数据库、非关系型数据库。</li><li>SQL语言：学习基本的SQL查询语句。</li><li>数据库设计：正规化、索引等。</li></ul><h3 id="5-操作系统"><a href="#5-操作系统" class="headerlink" title="5. 操作系统"></a>5. 操作系统</h3><ul><li>操作系统基础：进程、线程、内存管理、文件系统等。</li><li>Linux基础：基本命令、Shell脚本等。</li></ul><h3 id="6-编程范式"><a href="#6-编程范式" class="headerlink" title="6. 编程范式"></a>6. 编程范式</h3><ul><li>面向对象编程（OOP）：类、对象、继承、多态等。</li><li>函数式编程：纯函数、高阶函数、Lambda表达式等。</li></ul><h3 id="7-软件工程"><a href="#7-软件工程" class="headerlink" title="7. 软件工程"></a>7. 软件工程</h3><ul><li>版本控制：Git等。</li><li>单元测试、集成测试等。</li></ul><h3 id="8-前端开发（如果感兴趣）"><a href="#8-前端开发（如果感兴趣）" class="headerlink" title="8. 前端开发（如果感兴趣）"></a>8. 前端开发（如果感兴趣）</h3><ul><li>HTML、CSS、JavaScript基础。</li><li>前端框架：React、Vue、Angular等。</li></ul><h3 id="9-后端开发（如果感兴趣）"><a href="#9-后端开发（如果感兴趣）" class="headerlink" title="9. 后端开发（如果感兴趣）"></a>9. 后端开发（如果感兴趣）</h3><ul><li>服务器端语言：Node.js、Java、Python等。</li><li>Web框架：Express、Spring、Django等。</li></ul><h3 id="10-人工智能与机器学习（可选）"><a href="#10-人工智能与机器学习（可选）" class="headerlink" title="10. 人工智能与机器学习（可选）"></a>10. 人工智能与机器学习（可选）</h3><ul><li>机器学习基础概念。</li><li>监督学习、无监督学习等算法。</li></ul><h3 id="11-安全与网络攻防（可选）"><a href="#11-安全与网络攻防（可选）" class="headerlink" title="11. 安全与网络攻防（可选）"></a>11. 安全与网络攻防（可选）</h3><ul><li>网络安全基础。</li><li>密码学、渗透测试等。</li></ul><h3 id="12-大数据与云计算（可选）"><a href="#12-大数据与云计算（可选）" class="headerlink" title="12. 大数据与云计算（可选）"></a>12. 大数据与云计算（可选）</h3><ul><li>大数据处理框架：Hadoop、Spark等。</li><li>云服务平台：AWS、Azure、Google Cloud等。</li></ul><h3 id="13-软件开发实践"><a href="#13-软件开发实践" class="headerlink" title="13. 软件开发实践"></a>13. 软件开发实践</h3><ul><li>参与实际项目。</li><li>使用版本控制、构建工具、持续集成等开发工具。</li></ul><p>这只是一个简要的目录，你可以根据自己的兴趣和学习目标深入学习其中的某些领域。随着学习的深入，你可能会发现更多感兴趣的方向，并调整学习路径。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机 </tag>
+            
+            <tag> 学习 </tag>
+            
+            <tag> CharGpt </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>学习英语目标</title>
+      <link href="/2024/02/16/ToEnglish/"/>
+      <url>/2024/02/16/ToEnglish/</url>
+      
+        <content type="html"><![CDATA[<p>以下是一个逐步的学习英语的方案：</p><h3 id="初学阶段："><a href="#初学阶段：" class="headerlink" title="初学阶段："></a>初学阶段：</h3><ol><li><p><strong>学习基础语法：</strong> 从基础语法开始学习，了解英语的基本句型和语法规则，例如名词、动词、形容词和副词等。</p></li><li><p><strong>建立词汇量：</strong> 通过词汇书、应用程序或在线资源学习常用的英语单词和短语。每天尝试学习一些新单词，并使用它们来构建简单的句子。</p></li><li><p><strong>听力练习：</strong> 听英语音频，例如英语新闻、听力练习材料或英语课程。这有助于你熟悉英语的语音和语调，并提高听力理解能力。</p></li><li><p><strong>口语练习：</strong> 尽可能多地练习口语，即使是简单的对话也很有帮助。可以尝试跟着录音或视频重复说，并寻找语言交换伙伴进行练习。</p></li></ol><h3 id="中级阶段："><a href="#中级阶段：" class="headerlink" title="中级阶段："></a>中级阶段：</h3><ol><li><p><strong>阅读练习：</strong> 阅读英语文章、故事或书籍，从简单的开始，逐渐提高阅读难度。阅读有助于扩展词汇量、提高阅读理解能力和学习新的表达方式。</p></li><li><p><strong>写作练习：</strong> 尝试写一些简短的文章、日记或电子邮件，以练习书面表达能力。可以在写作过程中尝试运用所学的语法和词汇。</p></li><li><p><strong>语法深入学习：</strong> 进一步学习英语的语法知识，包括复杂句型、时态、语气和语态等。理解语法规则有助于提高对英语句子结构的理解能力。</p></li><li><p><strong>口语实践：</strong> 参加英语口语俱乐部、会议或课程，与其他学习者一起练习口语。尝试参与讨论和演讲，提高自己的口语表达能力。</p></li></ol><h3 id="高级阶段："><a href="#高级阶段：" class="headerlink" title="高级阶段："></a>高级阶段：</h3><ol><li><p><strong>深入阅读与听力：</strong> 阅读更加复杂和专业领域的英语材料，如学术论文、专业期刊或文学作品。同时，尝试听取更多自然语速的英语音频，如播客、演讲或听力材料。</p></li><li><p><strong>写作技巧提升：</strong> 学习写作的技巧和策略，包括逻辑清晰、段落结构、论证方法等。可以通过参加写作课程或阅读写作指南来提高写作水平。</p></li><li><p><strong>口语流利度：</strong> 继续进行口语练习，努力提高口语流利度和表达能力。可以尝试模仿英语电影或节目中的对话，并积极参与口语交流活动。</p></li><li><p><strong>备考考试：</strong> 如果你的目标是通过英语考试，如雅思或托福，那么建议你参加相应的备考课程或使用专门的备考材料进行准备。</p></li></ol><p>以上是一个基本的学习英语的方案，你可以根据自己的学习进度和需求进行调整和补充。记住，学习语言需要耐心和坚持，持之以恒，你一定会取得进步的！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 英语 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习 </tag>
+            
+            <tag> 英语 </tag>
+            
+            <tag> CharGPT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>git大小写不敏感问题</title>
       <link href="/2024/02/15/git-Aa/"/>
       <url>/2024/02/15/git-Aa/</url>
@@ -74,9 +159,9 @@
       
         <tags>
             
-            <tag> 报错 </tag>
-            
             <tag> git </tag>
+            
+            <tag> 报错 </tag>
             
             <tag> LF </tag>
             

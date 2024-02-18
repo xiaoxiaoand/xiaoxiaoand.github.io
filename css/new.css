@@ -1,0 +1,13 @@
+#nav-right{
+	flex:1 1 auto;
+	justify-content: flex-end;
+	margin-left: auto;
+	display: flex;
+	flex-wrap:nowrap;
+}
+
+/* 翻页按钮居中 */
+#pagination {
+	width: 100%;
+	margin: auto;
+}

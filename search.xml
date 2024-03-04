@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Linux学习笔记</title>
+      <link href="/posts/b30ceb9f/"/>
+      <url>/posts/b30ceb9f/</url>
+      
+        <content type="html"><![CDATA[<p>重新安装了九次系统，因为不会删除软件，怕有残留。只能重新安装。<br>把var文件夹全部权限设置为了777，导致sudo用不了。重装<br>禁用了root用户，用普通用户登录，发现给普通用户设置管理员权限的时候打错了，导致没有权限。重装<br>Centos转换Debian。重装。<br>其余重装基本都是软件安装问题，不知道软件的路径，权限，config，等等，不知道卸载后配置文件还在不在，乱七八糟的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CloudFlare导致网址[重定向的次数过多]</title>
       <link href="/posts/362735d1/"/>
       <url>/posts/362735d1/</url>
@@ -13,7 +38,7 @@
       
       <categories>
           
-          <category> 错误 </category>
+          <category> 解决问题 </category>
           
       </categories>
       
@@ -64,9 +89,23 @@
       <link href="/posts/7c8703ee/"/>
       <url>/posts/7c8703ee/</url>
       
-        <content type="html"><![CDATA[<h2 id="前端笔记"><a href="#前端笔记" class="headerlink" title="前端笔记"></a>前端笔记</h2>]]></content>
+        <content type="html"><![CDATA[<h2 id="前端笔记"><a href="#前端笔记" class="headerlink" title="前端笔记"></a>前端笔记</h2><p>常用属性</p><div class="table-container"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>nth</td><td>伪元素选择</td></tr><tr><td>flex</td><td>弹性布局</td></tr><tr><td></td><td>居中</td></tr><tr><td></td><td>去除a下划线</td></tr><tr><td></td><td>去除li小圆点</td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td></tr></tbody></table></div><p>flex布局<br>text -<br>just-<br>line-<br>图片下面DIV会有缝隙，图片设置为块级元素解决。</p>]]></content>
       
       
+      <categories>
+          
+          <category> 学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> css属性 </tag>
+            
+        </tags>
       
     </entry>
     

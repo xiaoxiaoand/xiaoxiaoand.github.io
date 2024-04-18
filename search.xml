@@ -614,31 +614,6 @@
     
     
     <entry>
-      <title>hexo图片显示问题</title>
-      <link href="/posts/34c7f5d/"/>
-      <url>/posts/34c7f5d/</url>
-      
-        <content type="html"><![CDATA[<div class="note info no-icon modern"><p>目的：为了同时满足Typora和网站都显示图片采用插件。</p></div><p>本地采用Typora编辑，图片路径为<code>./文件夹/图片</code>，<code>文件夹/图片</code>才可以显示，而对于网站可以采用<code>图片</code>，<code>./图片</code>的方式显示。</p><h2 id="不同格式图片引用方法"><a href="#不同格式图片引用方法" class="headerlink" title="不同格式图片引用方法"></a>不同格式图片引用方法</h2><h3 id="md格式"><a href="#md格式" class="headerlink" title="md格式"></a>md格式</h3><ol><li>对于<code>文章页</code></li></ol><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">image</span>](<span class="link">image.png</span>)</span><br><span class="line">![<span class="string">image</span>](<span class="link">./image.png</span>)</span><br></pre></td></tr></table></figure><p>安装插件后（为了符合Typora的显示），这一种格式同时满足Typora和网站都显示图片<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">image</span>](<span class="link">文章名文件夹/image.png</span>)</span><br></pre></td></tr></table></figure><br> 对于<code>标签页</code></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">image</span>](<span class="link">./index/image.png</span>)</span><br></pre></td></tr></table></figure><h3 id="标签外挂格式"><a href="#标签外挂格式" class="headerlink" title="标签外挂格式"></a>标签外挂格式</h3><ol><li>对于<code>文章页</code>的标签外挂图片，都统一采用相对路径</li></ol><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% image image.png %&#125;</span><br></pre></td></tr></table></figure><ol><li>对于<code>标签页</code>的标签外挂图片</li></ol><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% image ./index/image.jpg %&#125;</span><br></pre></td></tr></table></figure><h2 id="配置hexo"><a href="#配置hexo" class="headerlink" title="配置hexo"></a>配置hexo</h2><p>修改配置文件<code>_config.yml</code>文件, 将 post_asset_folder 设置为true, 这样每次<strong>new 生成一个文章时都会在当前目录下生成一个同名的文件夹</strong></p><img src="/posts/34c7f5d/image-20240211224925166.png" class="" title="image-20240211224925166"><img src="/posts/34c7f5d/image-20240211231118860.png" class="" title="image-20240211231118860"><h2 id="设置typora"><a href="#设置typora" class="headerlink" title="设置typora"></a>设置typora</h2><p>这样配置插入图片会在当前目录<strong>生成一个同名的文件夹</strong>，并且图片路径会是<code>文件夹/图片名.jpg</code></p><img src="/posts/34c7f5d/image-20240211230403971.png" class="" title="image-20240211230403971"><img src="/posts/34c7f5d/image-20240211231349143.png" class="" title="image-20240211231349143"><p>所以生成文件可以采用<code>hexo new &quot;标签&quot;</code>，也可以直接在Typora中新建。因为都可以生成图片文件夹。</p><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-img --save</span><br></pre></td></tr></table></figure><p>[插件项目地址]<a href="https://github.com/yiyungent/hexo-asset-img">https://github.com/yiyungent/hexo-asset-img</a></p><h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>这样本地Typora可以查看图片，部署后图片也是生效的。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 解决问题 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>git提示warning:LF...</title>
       <link href="/posts/fe07822e/"/>
       <url>/posts/fe07822e/</url>
@@ -660,6 +635,31 @@
             <tag> 报错 </tag>
             
             <tag> LF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hexo图片显示问题</title>
+      <link href="/posts/34c7f5d/"/>
+      <url>/posts/34c7f5d/</url>
+      
+        <content type="html"><![CDATA[<div class="note info no-icon modern"><p>目的：为了同时满足Typora和网站都显示图片采用插件。</p></div><p>本地采用Typora编辑，图片路径为<code>./文件夹/图片</code>，<code>文件夹/图片</code>才可以显示，而对于网站可以采用<code>图片</code>，<code>./图片</code>的方式显示。</p><h2 id="不同格式图片引用方法"><a href="#不同格式图片引用方法" class="headerlink" title="不同格式图片引用方法"></a>不同格式图片引用方法</h2><h3 id="md格式"><a href="#md格式" class="headerlink" title="md格式"></a>md格式</h3><ol><li>对于<code>文章页</code></li></ol><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">image</span>](<span class="link">image.png</span>)</span><br><span class="line">![<span class="string">image</span>](<span class="link">./image.png</span>)</span><br></pre></td></tr></table></figure><p>安装插件后（为了符合Typora的显示），这一种格式同时满足Typora和网站都显示图片<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">image</span>](<span class="link">文章名文件夹/image.png</span>)</span><br></pre></td></tr></table></figure><br> 对于<code>标签页</code></p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">image</span>](<span class="link">./index/image.png</span>)</span><br></pre></td></tr></table></figure><h3 id="标签外挂格式"><a href="#标签外挂格式" class="headerlink" title="标签外挂格式"></a>标签外挂格式</h3><ol><li>对于<code>文章页</code>的标签外挂图片，都统一采用相对路径</li></ol><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% image image.png %&#125;</span><br></pre></td></tr></table></figure><ol><li>对于<code>标签页</code>的标签外挂图片</li></ol><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% image ./index/image.jpg %&#125;</span><br></pre></td></tr></table></figure><h2 id="配置hexo"><a href="#配置hexo" class="headerlink" title="配置hexo"></a>配置hexo</h2><p>修改配置文件<code>_config.yml</code>文件, 将 post_asset_folder 设置为true, 这样每次<strong>new 生成一个文章时都会在当前目录下生成一个同名的文件夹</strong></p><img src="/posts/34c7f5d/image-20240211224925166.png" class="" title="image-20240211224925166"><img src="/posts/34c7f5d/image-20240211231118860.png" class="" title="image-20240211231118860"><h2 id="设置typora"><a href="#设置typora" class="headerlink" title="设置typora"></a>设置typora</h2><p>这样配置插入图片会在当前目录<strong>生成一个同名的文件夹</strong>，并且图片路径会是<code>文件夹/图片名.jpg</code></p><img src="/posts/34c7f5d/image-20240211230403971.png" class="" title="image-20240211230403971"><img src="/posts/34c7f5d/image-20240211231349143.png" class="" title="image-20240211231349143"><p>所以生成文件可以采用<code>hexo new &quot;标签&quot;</code>，也可以直接在Typora中新建。因为都可以生成图片文件夹。</p><h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-img --save</span><br></pre></td></tr></table></figure><p>[插件项目地址]<a href="https://github.com/yiyungent/hexo-asset-img">https://github.com/yiyungent/hexo-asset-img</a></p><h2 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h2><p>这样本地Typora可以查看图片，部署后图片也是生效的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 解决问题 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
             
         </tags>
       

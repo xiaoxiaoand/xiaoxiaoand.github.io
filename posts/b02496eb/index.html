@@ -1,0 +1,308 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Java JVM | 筱筱の小站</title><meta name="author" content="筱筱"><meta name="copyright" content="筱筱"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="JVM功能：解释和运行    内存管理        即时编译JIT 虚拟机组成类加载器、运行时数据区域、执行引擎（即时编译、解释器，垃圾回收）、本地接口（c、c++） 字节码：基础信息，常量池，字段，方法，属性 类的生命周期生命周期：加载-》内存，连接-》验证；准备；解析，初始化-》为静态方法赋值，使用，销毁 类的初始化方法：4个 实例化对象的5种方法&#x2F;&#x2F;1.new&#x2F;&#x2F;class.forName">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java JVM">
+<meta property="og:url" content="https://xiaoxiaoand.github.io/posts/b02496eb/index.html">
+<meta property="og:site_name" content="筱筱の小站">
+<meta property="og:description" content="JVM功能：解释和运行    内存管理        即时编译JIT 虚拟机组成类加载器、运行时数据区域、执行引擎（即时编译、解释器，垃圾回收）、本地接口（c、c++） 字节码：基础信息，常量池，字段，方法，属性 类的生命周期生命周期：加载-》内存，连接-》验证；准备；解析，初始化-》为静态方法赋值，使用，销毁 类的初始化方法：4个 实例化对象的5种方法&#x2F;&#x2F;1.new&#x2F;&#x2F;class.forName">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiaoxiaoand.github.io/images/default_top.jpg">
+<meta property="article:published_time" content="2026-02-28T04:58:28.000Z">
+<meta property="article:modified_time" content="2026-03-26T07:12:58.884Z">
+<meta property="article:author" content="筱筱">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xiaoxiaoand.github.io/images/default_top.jpg"><link rel="shortcut icon" href="/images/favicon.png"><link rel="canonical" href="https://xiaoxiaoand.github.io/posts/b02496eb/index.html"><link rel="preconnect"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css?v=6.5.1"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css?v=5.0.32" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js?v=4.11.0',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java JVM',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2026-03-26 15:12:58'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/new.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/flink_error.png" onerror="onerror=null;src='/images/flink_error.png'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">59</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 学习</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/computer/"><i class="fa-fw fas fa-folder-open"></i><span> 计算机</span></a></li><li><a class="site-page child" href="/english/"><i class="fa-fw fas fa-folder-open"></i><span> 英语</span></a></li><li><a class="site-page child" href="/salvation"><i class="fa-fw fas fa-folder-open"></i><span> 筱筱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/emo"><i class="fa-fw fas  fa-umbrella"></i><span> emo文学</span></a></div><div class="menus_item"><a class="site-page" href="/diary"><i class="fa-fw fas  fa-pen"></i><span> 日记</span></a></div><div class="menus_item"><a class="site-page" href="/diy"><i class="fa-fw fas  fa-hand"></i><span> DIY</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="筱筱の小站"><span class="site-name">筱筱の小站</span></a></span><div id="menus"></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 学习</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/computer/"><i class="fa-fw fas fa-folder-open"></i><span> 计算机</span></a></li><li><a class="site-page child" href="/english/"><i class="fa-fw fas fa-folder-open"></i><span> 英语</span></a></li><li><a class="site-page child" href="/salvation"><i class="fa-fw fas fa-folder-open"></i><span> 筱筱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/emo"><i class="fa-fw fas  fa-umbrella"></i><span> emo文学</span></a></div><div class="menus_item"><a class="site-page" href="/diary"><i class="fa-fw fas  fa-pen"></i><span> 日记</span></a></div><div class="menus_item"><a class="site-page" href="/diy"><i class="fa-fw fas  fa-hand"></i><span> DIY</span></a></div></div><div id="nav-right"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Java JVM</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-02-28T04:58:28.000Z" title="发表于 2026-02-28 12:58:28">2026-02-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-03-26T07:12:58.884Z" title="更新于 2026-03-26 15:12:58">2026-03-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"></div></div></div><article class="post-content" id="article-container"><h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2><p>功能：解释和运行    内存管理        即时编译JIT</p>
+<h3 id="虚拟机组成"><a href="#虚拟机组成" class="headerlink" title="虚拟机组成"></a>虚拟机组成</h3><p>类加载器、运行时数据区域、执行引擎（即时编译、解释器，垃圾回收）、本地接口（c、c++）</p>
+<p>字节码：基础信息，常量池，字段，方法，属性</p>
+<p>类的生命周期<br>生命周期：加载-》内存，连接-》验证；准备；解析，初始化-》为静态方法赋值，使用，销毁</p>
+<p>类的初始化方法：4个</p>
+<p>实例化对象的5种方法//1.new//class.forName//构造方法//克隆//序列化的反序列化</p>
+<p>静态代码块&gt;构造代码块&gt;构造方法    </p>
+<h4 id="类加载器：3个："><a href="#类加载器：3个：" class="headerlink" title="类加载器：3个："></a>类加载器：3个：</h4><p>启动类加载器，扩展类加载器，应用程序类加载器</p>
+<p>双亲委派机制：<br>1.保证类加载的安全性<br>2.避免重复加载<br>当一个类需要加载时，向上查找是否加载过-向下委派查看是否能加载。</p>
+<h4 id="运行时数据区："><a href="#运行时数据区：" class="headerlink" title="运行时数据区："></a>运行时数据区：</h4><p>线程不共享                        线程共享<br>程序计数器 java虚拟机栈 本地方法栈    方法区 堆</p>
+<h5 id="方法区：存放类的元信息，运行时常量池，字符串常量池"><a href="#方法区：存放类的元信息，运行时常量池，字符串常量池" class="headerlink" title="方法区：存放类的元信息，运行时常量池，字符串常量池"></a>方法区：存放类的元信息，运行时常量池，字符串常量池</h5><p>程序计数器 java虚拟机栈 本地方法栈：线程不共享。伴随线程的创建而创建，销毁而销毁，不需要垃圾收集器管理。<br>垃圾回收器：回收堆内存</p>
+<p>方法区的回收：3个条件<br>1.所有实例对象都被回收，在堆中不存在任何该类的实例对象以及子类对象<br>2.加载该类的类加载器已经被回收<br>3.该类对应的java.lang.Class对象没有在任何地方被引用。</p>
+<p>System.gc()     //向垃圾回收器发消息，不一定会被回收</p>
+<p>如何判断堆上的对象可以回收？根据对象是否被引用<br>循环依赖</p>
+<h5 id="堆回收："><a href="#堆回收：" class="headerlink" title="堆回收："></a>堆回收：</h5><p>引用计数法<br>引用+1，取消-1</p>
+<p>可达性分析器：GC Root 通过引用链可达<br>GC Root :<br>1.线程Thread对象，应用线程栈帧中的方法参数、局部变量等。<br>2.系统类加载器加载的java.lang.Class对象<br>3.监视器对象，用来保存同步锁synchronized关键字持有的对象。<br>4.本地方法调用时使用的全局对象。</p>
+<p>5种对象应用：</p>
+<p> 强引用：我们常常 new 出来的对象就是强引用类型，只要强引用存在，垃圾回收器将永远不会回收被引用的对象，哪怕内存不足的时候<br>软引用：使用 SoftReference 修饰的对象被称为软引用，软引用指向的对象在内存要溢出的时候被回收<br>弱引用：使用 WeakReference 修饰的对象被称为弱引用，只要发生垃圾回收，若这个对象只被弱引用指向，那么就会被回收<br>虚引用：虚引用是最弱的引用，在 Java 中使用 PhantomReference 进行定义。虚引用中唯一的作用就是用队列接收对象即将死亡的通知</p>
+<p>强引用、软应用、弱引用、虚引用、终结器引用</p>
+<h4 id="垃圾回收算法："><a href="#垃圾回收算法：" class="headerlink" title="垃圾回收算法："></a>垃圾回收算法：</h4><p>标记-清除算法        复制算法        标记-整理算法        分带GC</p>
+<h5 id="分带GC：年轻代-老年代"><a href="#分带GC：年轻代-老年代" class="headerlink" title="分带GC：年轻代/老年代"></a>分带GC：年轻代/老年代</h5><p>年轻代：伊甸园区、幸存区1、幸存区2</p>
+<h4 id="常用的GC回收器："><a href="#常用的GC回收器：" class="headerlink" title="常用的GC回收器："></a>常用的GC回收器：</h4><p>Serial    +    serialOld<br>ParNew    +    CMS<br>PS        +    PO<br>G1<br>Shenandoah和ZGC</p>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//创造   //结构     //行为</span><br><span class="line">//工厂方法：Factory Method</span><br><span class="line">//抽象工厂：Abstract Factory</span><br><span class="line">//建造者：Builder</span><br><span class="line">//原型：Prototype</span><br><span class="line">//单例：Singleton</span><br></pre></td></tr></table></figure>
+<h2 id="日志"><a href="#日志" class="headerlink" title="日志"></a>日志</h2><h3 id="一、日志功能的核心原理"><a href="#一、日志功能的核心原理" class="headerlink" title="一、日志功能的核心原理"></a>一、日志功能的核心原理</h3><p>日志的本质是<strong>将程序运行时的关键信息（时间、级别、内容、上下文等）持久化输出</strong>（输出到控制台、文件、数据库、远程服务器等），核心目的是：</p>
+<ol>
+<li>记录程序运行状态，辅助调试和问题定位；</li>
+<li>留存操作记录，满足审计、合规要求；</li>
+<li>监控程序健康状态。</li>
+</ol>
+<h4 id="日志的核心组成要素"><a href="#日志的核心组成要素" class="headerlink" title="日志的核心组成要素"></a>日志的核心组成要素</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">要素</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">日志级别</td>
+<td style="text-align:left">区分信息重要程度（DEBUG/INFO/WARN/ERROR/FATAL），方便过滤关键信息</td>
+</tr>
+<tr>
+<td style="text-align:left">时间戳</td>
+<td style="text-align:left">记录日志产生的时间，是问题定位的核心维度</td>
+</tr>
+<tr>
+<td style="text-align:left">上下文信息</td>
+<td style="text-align:left">如模块名、线程 ID、用户 ID 等，补充日志的场景信息</td>
+</tr>
+<tr>
+<td style="text-align:left">输出目的地</td>
+<td style="text-align:left">控制台（stdout/stderr）、文件、ELK/MySQL 等，可配置多目的地输出</td>
+</tr>
+<tr>
+<td style="text-align:left">格式化规则</td>
+<td style="text-align:left">定义日志的展示格式（如 <code>[时间] [级别] [模块] 内容</code>）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Java：使用-SLF4J-Logback（行业标准）"><a href="#Java：使用-SLF4J-Logback（行业标准）" class="headerlink" title="Java：使用 SLF4J + Logback（行业标准）"></a>Java：使用 SLF4J + Logback（行业标准）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">//nio</span><br><span class="line">        //这一段有点学不下去了，存一会</span><br><span class="line">        //   通道（Channel）和缓冲区（Buffer），非阻塞IO，Selectors（选择器）</span><br><span class="line">//         Path path= Paths.get(&quot;d:/upload/1.txt&quot;);</span><br><span class="line">//         FileChannel fileChannel= FileChannel.open(path);</span><br><span class="line">//        ByteBuffer buffer = ByteBuffer.allocate(1024);</span><br><span class="line"></span><br><span class="line">        //aio AsynchronousFileChannel</span><br><span class="line">//        Path path = Paths.get(&quot;logs/itwanger/paicoding.txt&quot;);</span><br><span class="line">//        AsynchronousFileChannel fileChannel = AsynchronousFileChannel.open(path);</span><br><span class="line">//        ByteBuffer buffer =null;</span><br><span class="line">//        Future&lt;Integer&gt; result = fileChannel.write(buffer, 0);</span><br><span class="line">//        // 等待写操作完成</span><br><span class="line">//        result.get();</span><br><span class="line">//        fileChannel.close();</span><br><span class="line">        //AsynchronousFileChannel</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        //集合框架Collation</span><br><span class="line">        //几个核心的：数组集合，链表集合，堆，栈</span><br><span class="line">        //set map   树set，树map  链表set  哈希set，哈希map</span><br><span class="line">//        List&lt;String&gt; arrayList=new ArrayList&lt;&gt;();   //列表：数组存储，有序，可重复</span><br><span class="line">//        arrayList.isEmpty();</span><br><span class="line">//        List&lt;String&gt; linkedList=new LinkedList&lt;&gt;(); //链式列表：双向链表</span><br><span class="line">//        Vector&lt;String&gt; vector=new Vector&lt;String&gt;(); //线程安全的</span><br><span class="line">//        Vector&lt;String&gt; stack=new Stack&lt;String&gt;();        //栈    先进后出</span><br><span class="line">//        Queue&lt;String&gt; queue=new ArrayDeque&lt;String&gt;();   //队列，堆  //先进先出,只能一侧加，一侧删除</span><br><span class="line">//        Deque&lt;String&gt; deque=new ArrayDeque&lt;String&gt;();       //双端队列，在队列的两端均可以插入或删除元素。</span><br><span class="line">//        Set&lt;String&gt; set=new HashSet&lt;String&gt;();  //无序列表,值唯一</span><br><span class="line">//        LinkedHashSet&lt;String&gt; linkedHashSet=new LinkedHashSet&lt;String&gt;();</span><br><span class="line">//        TreeSet&lt;String&gt; treeSet=new TreeSet&lt;String&gt;();  //(有序，唯一): 红黑树(自平衡的排序二叉树)。</span><br><span class="line">//</span><br><span class="line">//        Map&lt;String,String&gt; map1=new HashMap&lt;String,String&gt;();//哈希表，数组+链表</span><br><span class="line">//        Map&lt;String,String&gt; map2=new LinkedHashMap&lt;String,String&gt;();//哈希表+链表</span><br><span class="line">//        Map&lt;String,String&gt; map3=new TreeMap&lt;String,String&gt;();//(有序),红黑树（自平衡的排序二叉树）</span><br><span class="line">//        Map&lt;String,String&gt; map4=new Hashtable&lt;String,String&gt;();//数组+链表组成的,线程安全</span><br><span class="line">//</span><br><span class="line">//        //迭代器 Iterator</span><br><span class="line">        //Iterator&lt;String&gt; iterator=arrayList.iterator();</span><br><span class="line">        //内部有一个计数器，可以一个个获取元素</span><br><span class="line"></span><br><span class="line">        //深拷贝或浅拷贝</span><br><span class="line"></span><br><span class="line">        //网络</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        //jvm</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        //数据库</span><br><span class="line"></span><br><span class="line">        //太过于抽象</span><br><span class="line"></span><br><span class="line">        //reids</span><br><span class="line">        //spring</span><br><span class="line">        //web，data，cores，上下文 context，ioc，bean</span><br><span class="line">        //@Component：通用的注解，可标注任意类为 Spring 组件。如果一个 Bean 不知道属于哪个层，可以使用@Component 注解标注。</span><br><span class="line">        //@Repository : 对应持久层即 Dao 层，主要用于数据库相关操作</span><br><span class="line">        //@Service : 对应服务层，主要涉及一些复杂的逻辑，需要用到 Dao 层</span><br><span class="line">        //@Controller : 对应 Spring MVC 控制层，主要用于接受用户请求并调用 Service 层返回数据给前端页面</span><br><span class="line"></span><br><span class="line">        //@Autowired 和 @Resource 的区别是什么</span><br><span class="line"></span><br><span class="line">        //bean的注入：构造函数，set方法，@Autowired注解</span><br><span class="line">        // springmvc</span><br><span class="line">        //DispatcherServlet：核心的中央处理器，负责接收请求、分发，并给予客户端响应。</span><br><span class="line">        //HandlerMapping：处理器映射器，根据 URL 去匹配查找能处理的 Handler ，并会将请求涉及到的拦截器和 Handler 一起封装</span><br><span class="line">        //HandlerAdapter：处理器适配器，根据 HandlerMapping 找到的 Handler ，适配执行对应的 Handler；</span><br><span class="line">        //Handler：请求处理器，处理实际请求的处理器。</span><br><span class="line">        //ViewResolver：视图解析器，根据 Handler 返回的逻辑视图 / 视图，解析并渲染真正的视图，并传递给 DispatcherServlet 响应客户端</span><br><span class="line"></span><br><span class="line">        //bean的注册：其实就是@component 或者@Service</span><br><span class="line"></span><br><span class="line">        //@PathVariable</span><br><span class="line">        //@RequestParam</span><br><span class="line">        //@RequestBody</span><br><span class="line">        //spring的事务？？？ 事务的4大特性：一致性，原子性，隔离性，持久性</span><br><span class="line">        //json的序列化Jackson</span><br><span class="line">        //springboot</span><br><span class="line"></span><br><span class="line">        //Spring Security</span><br><span class="line"></span><br><span class="line">        //mybatis</span><br><span class="line">        //$&#123;&#125;是 Properties 文件中的变量占位符</span><br><span class="line">        //#&#123;&#125;是 sql 的参数占位符，MyBatis 会将 sql 中的#&#123;&#125;替换为? 号，在 sql 执行前会使用 PreparedStatement 的参数设置方法，按序给 sql 的? 号占位符设置参数值，</span><br><span class="line"></span><br><span class="line">        //rabbitMQ //默认轮询</span><br><span class="line">        //work模型：多个消费者绑定一个队列</span><br><span class="line">        //Fanout交换机</span><br><span class="line">        //Fanout广播，定向，话题</span><br><span class="line"></span><br><span class="line">        //linux</span><br><span class="line">        //git</span><br><span class="line">        //nginx</span><br><span class="line">        //ElasticSearch</span><br><span class="line"></span><br><span class="line">        //slf4j</span><br><span class="line"></span><br><span class="line">        //zookeeper</span><br><span class="line"></span><br><span class="line">        //锁和分布式锁</span><br></pre></td></tr></table></figure>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/1e885c14/" title="定时任务"><img class="cover" src="/images/default_top.jpg" onerror="onerror=null;src='/images/404.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">定时任务</div></div></a></div><div class="next-post pull-right"><a href="/posts/ac4a26c8/" title="宽带折腾"><img class="cover" src="/images/default_top.jpg" onerror="onerror=null;src='/images/404.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">宽带折腾</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/flink_error.png" onerror="this.onerror=null;this.src='/images/flink_error.png'" alt="avatar"/></div><div class="author-info__name">筱筱</div><div class="author-info__description">记录笔记和日常的地方</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">59</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn"></i><span>公告</span></div><div class="announcement_content">本站大部分资源来源于网络，仅供学习和交流。部分文章采取AI内容，请注意辨别安全和真实性。还请注意技术与插件的版本和时效性。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM"><span class="toc-number">1.</span> <span class="toc-text">JVM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%BB%84%E6%88%90"><span class="toc-number">1.1.</span> <span class="toc-text">虚拟机组成</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%EF%BC%9A3%E4%B8%AA%EF%BC%9A"><span class="toc-number">1.1.1.</span> <span class="toc-text">类加载器：3个：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E6%95%B0%E6%8D%AE%E5%8C%BA%EF%BC%9A"><span class="toc-number">1.1.2.</span> <span class="toc-text">运行时数据区：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%8C%BA%EF%BC%9A%E5%AD%98%E6%94%BE%E7%B1%BB%E7%9A%84%E5%85%83%E4%BF%A1%E6%81%AF%EF%BC%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E5%B8%B8%E9%87%8F%E6%B1%A0%EF%BC%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F%E6%B1%A0"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">方法区：存放类的元信息，运行时常量池，字符串常量池</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A0%86%E5%9B%9E%E6%94%B6%EF%BC%9A"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">堆回收：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="toc-number">1.1.3.</span> <span class="toc-text">垃圾回收算法：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%88%86%E5%B8%A6GC%EF%BC%9A%E5%B9%B4%E8%BD%BB%E4%BB%A3-%E8%80%81%E5%B9%B4%E4%BB%A3"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">分带GC：年轻代&#x2F;老年代</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84GC%E5%9B%9E%E6%94%B6%E5%99%A8%EF%BC%9A"><span class="toc-number">1.1.4.</span> <span class="toc-text">常用的GC回收器：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%97%A5%E5%BF%97"><span class="toc-number">3.</span> <span class="toc-text">日志</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%97%A5%E5%BF%97%E5%8A%9F%E8%83%BD%E7%9A%84%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86"><span class="toc-number">3.1.</span> <span class="toc-text">一、日志功能的核心原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%97%A5%E5%BF%97%E7%9A%84%E6%A0%B8%E5%BF%83%E7%BB%84%E6%88%90%E8%A6%81%E7%B4%A0"><span class="toc-number">3.1.1.</span> <span class="toc-text">日志的核心组成要素</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Java%EF%BC%9A%E4%BD%BF%E7%94%A8-SLF4J-Logback%EF%BC%88%E8%A1%8C%E4%B8%9A%E6%A0%87%E5%87%86%EF%BC%89"><span class="toc-number">3.2.</span> <span class="toc-text">Java：使用 SLF4J + Logback（行业标准）</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background: #b4c195"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2026 By 筱筱</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js?v=5.0.32"></script><div class="js-pjax"></div><script id="click-heart" src="/pluginsSrc/butterfly-extsrc/dist/click-heart.min.js?v=1.1.3" async="async" mobile="false"></script><script src="/pluginsSrc/pjax/pjax.min.js?v=0.2.8"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.12.0"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/54667693/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/images/cover/1.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-02-16</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/54667693/&quot;);" href="javascript:void(0);" alt="">标签外挂</a><div class="blog-slider__text">标签外挂语法+效果</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/54667693/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/576c43d4/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/images/cover/2.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-02-18</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/576c43d4/&quot;);" href="javascript:void(0);" alt="">快捷键</a><div class="blog-slider__text">常用的快捷键</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/576c43d4/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>

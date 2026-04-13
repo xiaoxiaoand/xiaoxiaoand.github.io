@@ -1,0 +1,659 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>学习CSharp | 筱筱の小站</title><meta name="author" content="筱筱"><meta name="copyright" content="筱筱"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="asp.net命名空间namespace  数据类型值类型（Value types）int 4个字节，32位 引用类型（Reference types）对象： 装箱 拆箱动态类型dynamic 您可以存储任何类型的值在动态数据类型变量中。这些变量的类型检查是在运行时发生的。 字符串（String）类型C# string 字符串的前面可以加 @（称作”逐字字符串”）将转义字符（\）当作普通字符对待，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学习CSharp">
+<meta property="og:url" content="https://xiaoxiaoand.github.io/posts/d0702821/index.html">
+<meta property="og:site_name" content="筱筱の小站">
+<meta property="og:description" content="asp.net命名空间namespace  数据类型值类型（Value types）int 4个字节，32位 引用类型（Reference types）对象： 装箱 拆箱动态类型dynamic 您可以存储任何类型的值在动态数据类型变量中。这些变量的类型检查是在运行时发生的。 字符串（String）类型C# string 字符串的前面可以加 @（称作”逐字字符串”）将转义字符（\）当作普通字符对待，">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiaoxiaoand.github.io/images/default_top.jpg">
+<meta property="article:published_time" content="2025-09-28T09:58:35.000Z">
+<meta property="article:modified_time" content="2025-10-09T14:33:12.785Z">
+<meta property="article:author" content="筱筱">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xiaoxiaoand.github.io/images/default_top.jpg"><link rel="shortcut icon" href="/images/favicon.png"><link rel="canonical" href="https://xiaoxiaoand.github.io/posts/d0702821/index.html"><link rel="preconnect"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css?v=6.5.1"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css?v=5.0.32" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js?v=4.11.0',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '学习CSharp',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-10-09 22:33:12'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/new.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiperstyle.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.1.1"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/images/flink_error.png" onerror="onerror=null;src='/images/flink_error.png'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">59</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 学习</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/computer/"><i class="fa-fw fas fa-folder-open"></i><span> 计算机</span></a></li><li><a class="site-page child" href="/english/"><i class="fa-fw fas fa-folder-open"></i><span> 英语</span></a></li><li><a class="site-page child" href="/salvation"><i class="fa-fw fas fa-folder-open"></i><span> 筱筱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/emo"><i class="fa-fw fas  fa-umbrella"></i><span> emo文学</span></a></div><div class="menus_item"><a class="site-page" href="/diary"><i class="fa-fw fas  fa-pen"></i><span> 日记</span></a></div><div class="menus_item"><a class="site-page" href="/diy"><i class="fa-fw fas  fa-hand"></i><span> DIY</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img fixed" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="筱筱の小站"><span class="site-name">筱筱の小站</span></a></span><div id="menus"></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-folder-open"></i><span> 学习</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/computer/"><i class="fa-fw fas fa-folder-open"></i><span> 计算机</span></a></li><li><a class="site-page child" href="/english/"><i class="fa-fw fas fa-folder-open"></i><span> 英语</span></a></li><li><a class="site-page child" href="/salvation"><i class="fa-fw fas fa-folder-open"></i><span> 筱筱</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/emo"><i class="fa-fw fas  fa-umbrella"></i><span> emo文学</span></a></div><div class="menus_item"><a class="site-page" href="/diary"><i class="fa-fw fas  fa-pen"></i><span> 日记</span></a></div><div class="menus_item"><a class="site-page" href="/diy"><i class="fa-fw fas  fa-hand"></i><span> DIY</span></a></div></div><div id="nav-right"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">学习CSharp</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-28T09:58:35.000Z" title="发表于 2025-09-28 17:58:35">2025-09-28</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-10-09T14:33:12.785Z" title="更新于 2025-10-09 22:33:12">2025-10-09</time></span></div><div class="meta-secondline"></div></div></div><article class="post-content" id="article-container"><h1 id="asp-net"><a href="#asp-net" class="headerlink" title="asp.net"></a>asp.net</h1><p>命名空间namespace </p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="值类型（Value-types）"><a href="#值类型（Value-types）" class="headerlink" title="值类型（Value types）"></a>值类型（Value types）</h3><p>int 4个字节，32位</p>
+<h3 id="引用类型（Reference-types）"><a href="#引用类型（Reference-types）" class="headerlink" title="引用类型（Reference types）"></a>引用类型（Reference types）</h3><p>对象： 装箱 拆箱<br>动态类型dynamic 您可以存储任何类型的值在动态数据类型变量中。这些变量的类型检查是在运行时发生的。</p>
+<h4 id="字符串（String）类型"><a href="#字符串（String）类型" class="headerlink" title="字符串（String）类型"></a>字符串（String）类型</h4><p>C# string 字符串的前面可以加 @（称作”逐字字符串”）将转义字符（\）当作普通字符对待，比如<br>string str = @”C:\Windows”;<br>string str = “C:\Windows”;<br>@ 字符串中可以任意换行，换行符及缩进空格都计算在字符串长度之内。</p>
+<p>隐式类型转换<br>显式转换</p>
+<p>String 是 CLR 的类型名称（也算是关键字），而 string 是 C# 中的关键字。？？</p>
+<h3 id="指针类型（Pointer-types）"><a href="#指针类型（Pointer-types）" class="headerlink" title="指针类型（Pointer types）"></a>指针类型（Pointer types）</h3><h2 id="变量的作用域"><a href="#变量的作用域" class="headerlink" title="变量的作用域"></a>变量的作用域</h2><p>局部变量：代码块中<br>全局变量：类中的，</p>
+<h2 id="访问修饰符"><a href="#访问修饰符" class="headerlink" title="访问修饰符"></a>访问修饰符</h2><p>public：所有对象都可以访问；<br>private：对象本身在对象内部可以访问；<br>protected：只有该类对象及其子类对象可以访问<br>internal：同一个程序集的对象可以访问；<br>protected internal：访问限于当前程序集或派生自包含类的类型。3 和 4 的并集，符合任意一条都可以访问。</p>
+<h2 id="参数传递"><a href="#参数传递" class="headerlink" title="参数传递"></a>参数传递</h2><p>值传递<br>引用参数：ref 引用参数表示与提供给方法的实际参数具有相同的内存位置。<br>输出参数：out ，可以不用赋值</p>
+<h2 id="？和？？"><a href="#？和？？" class="headerlink" title="？和？？"></a>？和？？</h2><p>int i; //默认值0<br>int? ii; //默认值null</p>
+<p>成员变量的值类型有默认值？？？？局部变量没有：如方法中的变量</p>
+<p>？？等于问你左边的值是不是空，空的话等于右边的值<br>int a=b??c</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>int[] a=new[10]<br>赋值一个数组变量到另一个目标数组变量中。在这种情况下，目标和源会指向相同的内存位置：<br>int [] marks = new int[]  { 99,  98, 92, 97, 95};<br>int[] score = marks;</p>
+<h2 id="struct-结构体"><a href="#struct-结构体" class="headerlink" title="struct 结构体"></a>struct 结构体</h2><p>值类型 vs 引用类型</p>
+<p>结构是值类型（Value Type）： 结构是值类型，它们在栈上分配内存，而不是在堆上。当将结构实例传递给方法或赋值给另一个变量时，将复制整个结构的内容。<br>类是引用类型（Reference Type）： 类是引用类型，它们在堆上分配内存。当将类实例传递给方法或赋值给另一个变量时，实际上是传递引用（内存地址）而不是整个对象的副本。<br>继承和多态性：</p>
+<p>结构不能继承： 结构不能继承其他结构或类，也不能作为其他结构或类的基类。<br>类支持继承： 类支持继承和多态性，可以通过派生新类来扩展现有类的功能。<br>默认构造函数：</p>
+<p>结构不能有无参数的构造函数： 结构不能包含无参数的构造函数。<br>类可以有无参数的构造函数： 类可以包含无参数的构造函数，如果没有提供构造函数，系统会提供默认的无参数构造函数。<br>赋值行为：</p>
+<p>类型为类的变量在赋值时存储的是引用，因此两个变量指向同一个对象。<br>结构变量在赋值时会复制整个结构，因此每个变量都有自己的独立副本。<br>传递方式：</p>
+<p>类型为类的对象在方法调用时通过引用传递，这意味着在方法中对对象所做的更改会影响到原始对象。<br>结构对象通常通过值传递，这意味着传递的是结构的副本，而不是原始结构对象本身。因此，在方法中对结构所做的更改不会影响到原始对象。<br>可空性：</p>
+<p>结构体是值类型，不能直接设置为 null：因为 null 是引用类型的默认值，而不是值类型的默认值。如果你需要表示结构体变量的缺失或无效状态，可以使用 Nullable<T> 或称为 T? 的可空类型。<br>类默认可为null： 类的实例默认可以为 null，因为它们是引用类型。<br>性能和内存分配：</p>
+<p>结构通常更轻量： 由于结构是值类型且在栈上分配内存，它们通常比类更轻量，适用于简单的数据表示。<br>类可能有更多开销： 由于类是引用类型，可能涉及更多的内存开销和管理。</p>
+<h2 id="enum-枚举"><a href="#enum-枚举" class="headerlink" title="enum 枚举"></a>enum 枚举</h2><p>可以看作定义的一串常量,默认0开始，往后加加。也可以自定义值<br>enum Days { Sun, Mon, tue, Wed, thu, Fri, Sat };<br>enum Days { Sun=7, Mon=100, tue, Wed, thu, Fri, Sat };<br>Days.sun</p>
+<h2 id="访问标识符"><a href="#访问标识符" class="headerlink" title="访问标识符"></a>访问标识符</h2><p>类的默认访问标识符是 internal<br>成员的默认访问标识符是 private。</p>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>class a{<br>    public a(){<br>    }<br>}</p>
+<h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><p>~{<br>}<br>析构函数用于在结束程序（比如关闭文件、释放内存等）之前释放资源。析构函数不能继承或重载。</p>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>一个类可以继承多个接口，但只能继承自一个类。</p>
+<p>派生类继承了基类的成员变量和成员方法。因此父类对象应在子类对象创建之前被创建。您可以在成员初始化列表中进行父类的初始化。<br> public Tabletop(double l, double w) : base(l, w)<br>      { }</p>
+<h2 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h2><h2 id="抽象类abstract"><a href="#抽象类abstract" class="headerlink" title="抽象类abstract"></a>抽象类abstract</h2><p>您不能创建一个抽象类的实例。<br>您不能在一个抽象类外部声明一个抽象方法。<br>通过在类定义前面放置关键字 sealed，可以将类声明为密封类。当一个类被声明为 sealed 时，它不能被继承。抽象类不能被声明为 sealed。</p>
+<h2 id="虚方法virtual"><a href="#虚方法virtual" class="headerlink" title="虚方法virtual"></a>虚方法virtual</h2><p>确定要重新的方法，或者说要再子类中实现的方法</p>
+<p>当有一个定义在类中的函数需要在继承类中实现时，可以使用虚方法。<br>虚方法是使用关键字 virtual 声明的。<br>虚方法可以在不同的继承类中有不同的实现。<br>对虚方法的调用是在运行时发生的。<br>动态多态性是通过 抽象类 和 虚方法 实现的。</p>
+<h2 id="override"><a href="#override" class="headerlink" title="override"></a>override</h2><p> public override int area ()</p>
+<h2 id="预处理指令"><a href="#预处理指令" class="headerlink" title="预处理指令"></a>预处理指令</h2><h1 id=""><a href="#" class="headerlink" title=" "></a> </h1><h1 id="define-和-undef-预处理器"><a href="#define-和-undef-预处理器" class="headerlink" title="define 和 #undef 预处理器"></a>define 和 #undef 预处理器</h1><h1 id="define-用于定义符号（通常用于条件编译），-undef-用于取消定义符号。"><a href="#define-用于定义符号（通常用于条件编译），-undef-用于取消定义符号。" class="headerlink" title="define 用于定义符号（通常用于条件编译），#undef 用于取消定义符号。"></a>define 用于定义符号（通常用于条件编译），#undef 用于取消定义符号。</h1><h1 id="define-DEBUG"><a href="#define-DEBUG" class="headerlink" title="define DEBUG"></a>define DEBUG</h1><h1 id="if-DEBUG"><a href="#if-DEBUG" class="headerlink" title="if DEBUG"></a>if DEBUG</h1><h1 id="elif-RELEASE"><a href="#elif-RELEASE" class="headerlink" title="elif RELEASE"></a>elif RELEASE</h1><h1 id="else"><a href="#else" class="headerlink" title="else"></a>else</h1><h1 id="endif"><a href="#endif" class="headerlink" title="endif"></a>endif</h1><h1 id="warning-和-error"><a href="#warning-和-error" class="headerlink" title="warning 和 #error"></a>warning 和 #error</h1><h1 id="warning-用于生成编译器警告，-error-用于生成编译器错误。"><a href="#warning-用于生成编译器警告，-error-用于生成编译器错误。" class="headerlink" title="warning 用于生成编译器警告，#error 用于生成编译器错误。"></a>warning 用于生成编译器警告，#error 用于生成编译器错误。</h1><h1 id="region-和-endregion"><a href="#region-和-endregion" class="headerlink" title="region 和 #endregion"></a>region 和 #endregion</h1><p>用于代码折叠，使代码更加可读。</p>
+<h1 id="line"><a href="#line" class="headerlink" title="line"></a>line</h1><p>用于更改文件行号和文件名的编译器输出。</p>
+<h1 id="pragma"><a href="#pragma" class="headerlink" title="pragma"></a>pragma</h1><p>用于向编译器发送特殊指令。最常见的用法是禁用特定的警告。</p>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><p>try{<br>}<br>catch{<br>}<br>finally{<br>}<br>C# 异常是使用类来表示的。C# 中的异常类主要是直接或间接地派生于 System.Exception 类。System.ApplicationException 和 System.SystemException 类是派生于 System.Exception 类的异常类。<br>System.ApplicationException 类支持由应用程序生成的异常。所以程序员定义的异常都应派生自该类。<br>System.SystemException 类是所有预定义的系统异常的基类。<br>下表列出了一些派生自 System.SystemException 类的预定义的异常类：<br>System.IO.IOException    处理 I/O 错误。<br>System.IndexOutOfRangeException    处理当方法指向超出范围的数组索引时生成的错误。<br>System.ArrayTypeMismatchException    处理当数组类型不匹配时生成的错误。<br>System.NullReferenceException    处理当依从一个空对象时生成的错误。<br>System.DivideByZeroException    处理当除以零时生成的错误。<br>System.InvalidCastException    处理在类型转换期间生成的错误。<br>System.OutOfMemoryException    处理空闲内存不足生成的错误。<br>System.StackOverflowException    处理栈溢出生成的错误。</p>
+<p>抛出对象<br>如果异常是直接或间接派生自 System.Exception 类，您可以抛出一个对象。您可以在 catch 块中使用 throw 语句来抛出当前的对象。</p>
+<h2 id="文件的输入与输出"><a href="#文件的输入与输出" class="headerlink" title="文件的输入与输出"></a>文件的输入与输出</h2><p>System.IO  输入流 和 输出流</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">I/O 类</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">BinaryReader</td>
+<td style="text-align:left">从二进制流读取原始数据。</td>
+</tr>
+<tr>
+<td style="text-align:left">BinaryWriter</td>
+<td style="text-align:left">以二进制格式写入原始数据。</td>
+</tr>
+<tr>
+<td style="text-align:left">BufferedStream</td>
+<td style="text-align:left">字节流的临时存储。</td>
+</tr>
+<tr>
+<td style="text-align:left">Directory</td>
+<td style="text-align:left">有助于操作目录结构。</td>
+</tr>
+<tr>
+<td style="text-align:left">DirectoryInfo</td>
+<td style="text-align:left">用于对目录执行操作。</td>
+</tr>
+<tr>
+<td style="text-align:left">DriveInfo</td>
+<td style="text-align:left">提供驱动器的信息。</td>
+</tr>
+<tr>
+<td style="text-align:left">File</td>
+<td style="text-align:left">有助于处理文件。</td>
+</tr>
+<tr>
+<td style="text-align:left">FileInfo</td>
+<td style="text-align:left">用于对文件执行操作。</td>
+</tr>
+<tr>
+<td style="text-align:left">FileStream</td>
+<td style="text-align:left">用于文件中任何位置的读写。</td>
+</tr>
+<tr>
+<td style="text-align:left">MemoryStream</td>
+<td style="text-align:left">用于随机访问存储在内存中的数据流。</td>
+</tr>
+<tr>
+<td style="text-align:left">Path</td>
+<td style="text-align:left">对路径信息执行操作。</td>
+</tr>
+<tr>
+<td style="text-align:left">StreamReader</td>
+<td style="text-align:left">用于从字节流中读取字符。</td>
+</tr>
+<tr>
+<td style="text-align:left">StreamWriter</td>
+<td style="text-align:left">用于向一个流中写入字符。</td>
+</tr>
+<tr>
+<td style="text-align:left">StringReader</td>
+<td style="text-align:left">用于读取字符串缓冲区。</td>
+</tr>
+<tr>
+<td style="text-align:left">StringWriter</td>
+<td style="text-align:left">用于写入字符串缓冲区。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="FileStream"><a href="#FileStream" class="headerlink" title="FileStream"></a>FileStream</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FileStream F = <span class="keyword">new</span> FileStream(<span class="string">&quot;sample.txt&quot;</span>, FileMode.Open, FileAccess.Read, FileShare.Read);</span><br></pre></td></tr></table></figure>
+<p><strong>FileMode</strong> 枚举定义了各种打开文件的方法</p>
+<ul>
+<li><strong>Append</strong>：打开一个已有的文件，并将光标放置在文件的末尾。如果文件不存在，则创建文件。</li>
+<li><strong>Create</strong>：创建一个新的文件。如果文件已存在，则删除旧文件，然后创建新文件。</li>
+<li><strong>CreateNew</strong>：指定操作系统应创建一个新的文件。如果文件已存在，则抛出异常。</li>
+<li><strong>Open</strong>：打开一个已有的文件。如果文件不存在，则抛出异常。</li>
+<li><strong>OpenOrCreate</strong>：指定操作系统应打开一个已有的文件。如果文件不存在，则用指定的名称创建一个新的文件打开。</li>
+<li><strong>Truncate</strong>：打开一个已有的文件，文件一旦打开，就将被截断为零字节大小。然后我们可以向文件写入全新的数据，但是保留文件的初始创建日期。如果文件不存在，则抛出异常。</li>
+</ul>
+<p><strong>FileAccess</strong> 枚举的成员有：<strong>Read</strong>、<strong>ReadWrite</strong> 和 <strong>Write</strong>。</p>
+<p><strong>FileShare</strong> 枚举的成员有：</p>
+<ul>
+<li><strong>Inheritable</strong>：允许文件句柄可由子进程继承。Win32 不直接支持此功能。</li>
+<li><strong>None</strong>：谢绝共享当前文件。文件关闭前，打开该文件的任何请求（由此进程或另一进程发出的请求）都将失败。</li>
+<li><strong>Read</strong>：允许随后打开文件读取。如果未指定此标志，则文件关闭前，任何打开该文件以进行读取的请求（由此进程或另一进程发出的请求）都将失败。但是，即使指定了此标志，仍可能需要附加权限才能够访问该文件。</li>
+<li><strong>ReadWrite</strong>：允许随后打开文件读取或写入。如果未指定此标志，则文件关闭前，任何打开该文件以进行读取或写入的请求（由此进程或另一进程发出）都将失败。但是，即使指定了此标志，仍可能需要附加权限才能够访问该文件。</li>
+<li><strong>Write</strong>：允许随后打开文件写入。如果未指定此标志，则文件关闭前，任何打开该文件以进行写入的请求（由此进程或另一进过程发出的请求）都将失败。但是，即使指定了此标志，仍可能需要附加权限才能够访问该文件。</li>
+<li><strong>Delete</strong>：允许随后删除文件</li>
+</ul>
+<p> // using 语句也能关闭 StreamReader???</p>
+<h2 id="特性（Attribute）"><a href="#特性（Attribute）" class="headerlink" title="特性（Attribute）"></a>特性（Attribute）</h2><p>.Net 框架提供了三种预定义特性：</p>
+<ul>
+<li>AttributeUsage</li>
+<li>Conditional</li>
+<li>Obsolete</li>
+</ul>
+<h2 id="反射（Reflection）"><a href="#反射（Reflection）" class="headerlink" title="反射（Reflection）"></a>反射（Reflection）</h2><p>System.Reflection 命名空间下</p>
+<p>类    作用<br>Assembly    定义和加载程序集，加载在程序集清单中列出模块，以及从此程序集中查找类型并创建该类型的实例。<br>MethodInfo    了解方法的名称、返回类型、参数、访问修饰符（如pulic 或private）和实现详细信息（如abstract或virtual）等。使用Type的GetMethods或GetMethod方法来调用特定的方法。<br>PropertyInfo    了解属性的名称、数据类型、声明类型、反射类型和只读或可写状态等，获取或设置属性值。<br>FieldInfo    了解字段的名称、访问修饰符（如public或private）和实现详细信息（如static）等，并获取或设置字段值。<br>MemberInfo    用于获取有关类 (构造函数、事件、字段、方法和属性) 的所有成员的信息。此类引入所有成员提供的基本功能。<br>EventInfo    了解事件的名称、事件处理程序数据类型、自定义属性、声明类型和反射类型等，添加或移除事件处理程序。<br>ConstructorInfo    了解构造函数的名称、参数、访问修饰符（如pulic 或private）和实现详细信息（如abstract或virtual）等。使用Type的GetConstructors或 GetConstructor方法来调用特定的构造函数。<br>ParameterInfo    了解参数的名称、数据类型、是输入参数还是输出参数，以及参数在方法签名中的位置等。</p>
+<h3 id="type"><a href="#type" class="headerlink" title="type"></a>type</h3><p>通过这个类可以访问任何给定数据类型的信息。 System.Type 类对于反射起着核心的作用。但它是一个抽象的基类，Type有与每种数据类型对应的派生类，我们使用这个派生类的对象的方法、字段、属性来查找有关该类型的所有信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//生成Type对象:</span><br><span class="line">//1.使用typeof运算符</span><br><span class="line">Type t = typeof(int);</span><br><span class="line">//2.GetType()方法继承自Object，所以C#中任何对象都具有GetType()方法</span><br><span class="line">int i;</span><br><span class="line">Type t = i.GetType();</span><br><span class="line">//3.使用Type类的静态方法GetType()</span><br><span class="line">Type t = Type.GetType(&quot;System.Double&quot;);</span><br></pre></td></tr></table></figure>
+<p>属性    描述<br>Name    数据类型名<br>FullName    数据类型的完全限定名(包括命名空间名)<br>Namespace    定义数据类型的命名空间名<br>IsAbstract    指示该类型是否是抽象类型<br>IsArray    指示该类型是否是数组<br>IsClass    指示该类型是否是类<br>IsEnum    指示该类型是否是枚举<br>IsInterface    指示该类型是否是接口<br>IsPublic    指示该类型是否是公有的<br>IsSealed    指示该类型是否是密封类<br>IsValueType    指示该类型是否是值类型</p>
+<p>方法    描述<br>GetConstructor(),GetConstructors()    返回ConstructorInfo类型，用于取得该类的构造函数的信息<br>GetEvent(), GetEvents()    返回EventInfo类型，用于取得该类的事件的信息<br>GetField(), GetFields()    返回FieldInfo类型，用于取得该类的字段（成员变量）的信息<br>GetInterface(),GetInterfaces()    返回InterfaceInfo类型，用于取得该类实现的接口的信息<br>GetMember(), GetMembers()    返回MemberInfo类型，用于取得该类的所有成员的信息<br>GetMethod(), GetMethods()    返回MethodInfo类型，用于取得该类的方法的信息<br>GetProperty(), GetProperties()    返回PropertyInfo类型，用于取得该类的属性的信息</p>
+<h3 id="System-Reflection-Assembly-类"><a href="#System-Reflection-Assembly-类" class="headerlink" title="System.Reflection.Assembly 类"></a>System.Reflection.Assembly 类</h3><p>方法    描述<br>Load(String)    通过程序集名称返回Assembly对象<br>LoadFrom(String)    通过DLL文件名称返回Assembly对象<br>LoadFile(String)    加载指定路径上的程序集文件的内容返回Assembly对象。<br>GetType(String)    通过Assembly获取程序集中类，参数必须是类的全名<br>GetTypes    通过Assembly获取程序集中所有的类</p>
+<h3 id="BindingFlags-指定反射查找范围"><a href="#BindingFlags-指定反射查找范围" class="headerlink" title="BindingFlags 指定反射查找范围"></a>BindingFlags 指定反射查找范围</h3><h4 id="默认值："><a href="#默认值：" class="headerlink" title="默认值："></a>默认值：</h4><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认值</span></span><br><span class="line">Default</span><br></pre></td></tr></table></figure>
+<h4 id="查找："><a href="#查找：" class="headerlink" title="查找："></a>查找：</h4><p>这些标记用于反射的时候查找类型成员：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 表示查找的时候，需要忽略大小写。</span></span><br><span class="line">IgnoreCase</span><br><span class="line"></span><br><span class="line"><span class="comment">// 仅查找此特定类型中声明的成员，而不会包括这个类继承得到的成员。</span></span><br><span class="line">DeclaredOnly</span><br><span class="line"></span><br><span class="line"><span class="comment">// 仅查找类型中的实例成员。</span></span><br><span class="line">Instance</span><br><span class="line"></span><br><span class="line"><span class="comment">// 仅查找类型中的静态成员。</span></span><br><span class="line">Static</span><br><span class="line"></span><br><span class="line"><span class="comment">// 仅查找类型中的公共成员。</span></span><br><span class="line">Public</span><br><span class="line"></span><br><span class="line"><span class="comment">// 仅查找类型中的非公共成员（internal protected private）</span></span><br><span class="line">NonPublic</span><br><span class="line"></span><br><span class="line"><span class="comment">// 会查找此特定类型继承树上得到的静态成员。但仅继承公共（public）静态成员和受保护（protected）静态成员；不包含私有静态成员，也不包含嵌套类型。</span></span><br><span class="line">FlattenHierarchy</span><br></pre></td></tr></table></figure>
+<p><strong>调用：</strong></p>
+<p>这些标记用于为<code>InvokeMember</code>方法提供参数，告知应该如何反射调用一个方法：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用方法。</span></span><br><span class="line">InvokeMethod</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建实例。</span></span><br><span class="line">CreateInstance</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取字段的值。</span></span><br><span class="line">GetField</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置字段的值。</span></span><br><span class="line">SetField</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取属性的值。</span></span><br><span class="line">GetProperty</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置属性的值。</span></span><br><span class="line">SetProperty</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>常用的组合：</strong></p>
+<ul>
+<li>拿到所有成员</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Static | BindingFlags.Instance</span><br><span class="line"></span><br><span class="line">BindingFlags.Public | BindingFlags.Instance</span><br></pre></td></tr></table></figure>
+<ul>
+<li>拿到公有的实例成员：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BindingFlags.Public | BindingFlags.Instance</span><br></pre></td></tr></table></figure>
+<h2 id="索引器（Indexer）"><a href="#索引器（Indexer）" class="headerlink" title="索引器（Indexer）"></a>索引器（Indexer）</h2><p>对象通过 <code>[下标]</code> 直接操作其内部的数组（或其他集合）</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">IntCollection</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">int</span>[] data = <span class="keyword">new</span> <span class="built_in">int</span>[<span class="number">10</span>]; <span class="comment">// 内部存储数组</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 定义索引器（int 类型索引）</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> <span class="keyword">this</span>[<span class="built_in">int</span> index]</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 检查索引是否越界</span></span><br><span class="line">            <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= data.Length)</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfRangeException(<span class="string">&quot;索引超出范围&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> data[index];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= data.Length)</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> IndexOutOfRangeException(<span class="string">&quot;索引超出范围&quot;</span>);</span><br><span class="line">            data[index] = <span class="keyword">value</span>; <span class="comment">// value 是传入的赋值</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 集合长度属性</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> Length =&gt; data.Length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用示例</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        IntCollection collection = <span class="keyword">new</span> IntCollection();</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 像数组一样赋值</span></span><br><span class="line">        collection[<span class="number">0</span>] = <span class="number">10</span>;</span><br><span class="line">        collection[<span class="number">1</span>] = <span class="number">20</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 像数组一样取值</span></span><br><span class="line">        Console.WriteLine(collection[<span class="number">0</span>]); <span class="comment">// 输出：10</span></span><br><span class="line">        Console.WriteLine(collection[<span class="number">1</span>]); <span class="comment">// 输出：20</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li><strong>索引器是一种 “语法糖”</strong>：本质是简化了方法调用，让对象能用 <code>[ ]</code> 操作，更像数组。</li>
+<li><strong>索引可以是任意类型</strong>：不只是整数（如数组），还可以是字符串、自定义类型等。</li>
+<li><strong>作用</strong>：让自定义类的使用更直观，尤其是当类内部包含 “可通过索引访问的数据” 时（比如集合、字典、矩阵等）。</li>
+</ol>
+<h2 id="委托（Delegate）"><a href="#委托（Delegate）" class="headerlink" title="委托（Delegate）"></a>委托（Delegate）</h2><p><strong>类型安全：</strong>委托是类型安全的，这意味着只有签名匹配的方法才能赋值给委托。</p>
+<p>匿名方法和 lambda 表达式：你可以使用匿名方法或 lambda 表达式来创建委托实例，简化代码。</p>
+<p>异步调用：可以将委托与 BeginInvoke 和 EndInvoke 方法一起使用，进行异步调用。</p>
+<p>委托是 C# 中一个非常强大和灵活的特性，可以帮助实现事件驱动的编程、回调机制和函数式编程风格。它不仅提供了代码重用的能力，还提高了程序的模块化程度。理解和掌握委托的使用对于 C# 编程是非常重要的。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> <span class="keyword">void</span> <span class="title">Show</span>()</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">text</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;aaa&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        Show show=<span class="keyword">new</span> Show(text);</span><br><span class="line">        <span class="comment">//Show show = text;可以不用new，直接传递找个函数</span></span><br><span class="line">        show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="委托的多播"><a href="#委托的多播" class="headerlink" title="委托的多播"></a>委托的多播</h3><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">delegate</span> <span class="keyword">void</span> 委托();</span><br><span class="line">委托 委托名 = 方法<span class="number">1</span>;</span><br><span class="line">委托名 += 方法<span class="number">2</span>;</span><br><span class="line">委托名();</span><br><span class="line"> <span class="comment">// 调用时会依次执行 方法1 和 方法2</span></span><br><span class="line">委托名 -= 方法<span class="number">1</span>; <span class="comment">// 移除方法1</span></span><br><span class="line">委托名(); <span class="comment">// 现在只执行方法2</span></span><br></pre></td></tr></table></figure>
+<h3 id="系统提供委托方法"><a href="#系统提供委托方法" class="headerlink" title="系统提供委托方法"></a>系统提供委托方法</h3><p>Action：代表不返回值的方法。可以接受最多 16 个参数。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Action&lt;<span class="built_in">string</span>&gt; printMessage = Console.WriteLine;</span><br><span class="line">printMessage(<span class="string">&quot;Hello&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>Func：代表有返回值的方法。最多接受 16 个参数，第一个参数是输入参数，最后一个参数是返回值类型。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Func&lt;<span class="built_in">int</span>, <span class="built_in">int</span>, <span class="built_in">int</span>&gt; <span class="keyword">add</span> = (x, y) =&gt; x + y;</span><br><span class="line">Console.WriteLine(<span class="keyword">add</span>(<span class="number">3</span>, <span class="number">4</span>));  <span class="comment">// 输出 7</span></span><br></pre></td></tr></table></figure>
+<p>Predicate：代表返回 bool 值的方法，通常用于条件判断。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Predicate&lt;<span class="built_in">int</span>&gt; isEven = x =&gt; x % <span class="number">2</span> == <span class="number">0</span>;</span><br><span class="line">Console.WriteLine(isEven(<span class="number">4</span>));  <span class="comment">// 输出 True</span></span><br></pre></td></tr></table></figure>
+<h2 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h2><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span>  <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span> &#123;</span><br><span class="line">        <span class="comment">//生产</span></span><br><span class="line">        Shop shop = <span class="keyword">new</span> Shop();</span><br><span class="line">        <span class="comment">//消费</span></span><br><span class="line">        User user1 = <span class="keyword">new</span> User();</span><br><span class="line">        User user2 = <span class="keyword">new</span> User();</span><br><span class="line">        <span class="comment">//订阅</span></span><br><span class="line">        shop.GoGood += user1.ToShop;</span><br><span class="line">        shop.GoGood += user2.ToShop;</span><br><span class="line">        <span class="comment">//发布</span></span><br><span class="line">        shop.NewGood(<span class="string">&quot;短裙&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//委托</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="built_in">delegate</span> <span class="keyword">void</span> <span class="title">Good</span>(<span class="params">Object shopName, String goodName</span>)</span>;</span><br><span class="line"><span class="comment">//生产</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">Shop</span> &#123; </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">event</span> Good? GoGood;</span><br><span class="line">    <span class="comment">//生产并通知方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">NewGood</span>(<span class="params">String name</span>)</span> &#123;</span><br><span class="line">        <span class="comment">//生产</span></span><br><span class="line">        Console.WriteLine(<span class="string">&quot;店铺:&quot;</span>+<span class="keyword">this</span>+ <span class="string">&quot;有新的商品&quot;</span>+name);</span><br><span class="line">        <span class="comment">//通知:生产者名称+生产商品</span></span><br><span class="line">        GoGood?.Invoke(<span class="keyword">this</span>,name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//消费者</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">User</span> &#123;</span><br><span class="line">    <span class="comment">//响应方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ToShop</span>(<span class="params"><span class="built_in">object</span> shopName,String goodName</span>)</span> &#123;</span><br><span class="line">        Console.WriteLine(<span class="string">&quot;我去买&quot;</span>+goodName+<span class="string">&quot;来自&quot;</span>+shopName);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>事件让一个对象（发布者）在特定情况发生时，自动调用所有已注册的方法（订阅者的方法）</strong>。</p>
+<p>当某事发生时，所有关心这件事的对象会自动执行自己的处理方法，这是一种 “一对多” 的自动通知机制。</p>
+<p>这种机制的好处是：发布者和订阅者互不依赖（比如商店不需要知道有多少用户，用户也不需要时刻盯着商店），但能在关键时刻自动协作。</p>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>类    描述和用法<br>动态数组（ArrayList）    它代表了可被单独索引的对象的有序集合。<br>使用索引在指定的位置添加和移除项目，动态数组会自动重新调整它的大小。它也允许在列表中进行动态内存分配、增加、搜索、排序各项。</p>
+<p>哈希表（Hashtable）    它使用键来访问集合中的元素。<br>当您使用键访问元素时，则使用哈希表，而且您可以识别一个有用的键值。哈希表中的每一项都有一个键/值对。键用于访问集合中的项目。</p>
+<p>排序列表（SortedList）    它可以使用键和索引来访问列表中的项。<br>排序列表是数组和哈希表的组合。它包含一个可使用键或索引访问各项的列表。如果您使用索引访问各项，则它是一个动态数组（ArrayList），如果您使用键访问各项，则它是一个哈希表（Hashtable）。集合中的各项总是按键值排序。</p>
+<p>堆栈（Stack）    它代表了一个后进先出的对象集合。<br>当您需要对各项进行后进先出的访问时，则使用堆栈。当您在列表中添加一项，称为推入元素，当您从列表中移除一项时，称为弹出元素。</p>
+<p>队列（Queue）    它代表了一个先进先出的对象集合。<br>当您需要对各项进行先进先出的访问时，则使用队列。当您在列表中添加一项，称为入队，当您从列表中移除一项时，称为出队。</p>
+<p>点阵列（BitArray）    它代表了一个使用值 1 和 0 来表示的二进制数组。<br>当您需要存储位，但是事先不知道位数时，则使用点阵列。您可以使用整型索引从点阵列集合中访问各项，索引从零开始。</p>
+<p>字典（Dictionary）</p>
+<p>SortedDictionary</p>
+<h2 id="匿名方法Lambda"><a href="#匿名方法Lambda" class="headerlink" title="匿名方法Lambda"></a>匿名方法Lambda</h2><ul>
+<li>匿名方法和 Lambda 都是为了简化委托的使用，避免定义临时方法</li>
+<li>Lambda 是匿名方法的升级版，语法更简洁，是现代 C# 开发的首选</li>
+<li>当事件或委托的逻辑简单且只使用一次时，用 Lambda 可以大幅简化代码</li>
+</ul>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span>  <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span> &#123;</span><br><span class="line">        <span class="comment">//生产</span></span><br><span class="line">        Shop shop = <span class="keyword">new</span> Shop();</span><br><span class="line">        <span class="comment">//订阅+使用匿名方法创建消费者</span></span><br><span class="line">        shop.GoGood += (msg) =&gt;</span><br><span class="line">        &#123;</span><br><span class="line">            Console.WriteLine(<span class="string">&quot;d&quot;</span>);</span><br><span class="line">        &#125;;</span><br><span class="line">        shop.GoGood += <span class="built_in">delegate</span>(<span class="built_in">string</span> msg) &#123; </span><br><span class="line">            Console.WriteLine(msg);</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="comment">//发布</span></span><br><span class="line">        shop.NewGood(<span class="string">&quot;T恤&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//委托</span></span><br><span class="line"> <span class="function"><span class="built_in">delegate</span> <span class="keyword">void</span> <span class="title">Good</span>(<span class="params"><span class="built_in">string</span> goodName</span>)</span>;</span><br><span class="line"><span class="comment">//生产</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">Shop</span> &#123; </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">event</span> Good? GoGood;</span><br><span class="line">    <span class="comment">//生产并通知方法</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span>  <span class="title">NewGood</span>(<span class="params"><span class="built_in">string</span> name</span>)</span> &#123;</span><br><span class="line">        <span class="comment">//生产</span></span><br><span class="line">        Console.WriteLine(<span class="string">&quot;店铺有新的商品&quot;</span>+name);</span><br><span class="line">        <span class="comment">//通知:生产者名称+生产商品</span></span><br><span class="line">        GoGood?.Invoke(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>线程生命周期开始于 System.Threading.Thread 类的对象被创建时，结束于线程被终止或完成执行时。</p>
+<p>下面列出了线程生命周期中的各种状态：</p>
+<ul>
+<li><p><strong>未启动状态</strong>：当线程实例被创建但 Start 方法未被调用时的状况。</p>
+</li>
+<li><p><strong>就绪状态</strong>：当线程准备好运行并等待 CPU 周期时的状况。</p>
+</li>
+<li><p>不可运行状态</p>
+<p>：下面的几种情况下线程是不可运行的：</p>
+</li>
+</ul>
+<ul>
+<li>已经调用 Sleep 方法</li>
+<li>已经调用 Wait 方法</li>
+<li>通过 I/O 操作阻塞</li>
+</ul>
+<ul>
+<li><strong>死亡状态</strong>：当线程已完成执行或已中止时的状况。</li>
+</ul>
+<h2 id="Thread-类常用的属性和方法"><a href="#Thread-类常用的属性和方法" class="headerlink" title="Thread 类常用的属性和方法"></a>Thread 类常用的属性和方法</h2><p>下表列出了 <strong>Thread</strong> 类的一些常用的 <strong>属性</strong>：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">属性</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">CurrentContext</td>
+<td style="text-align:left">获取线程正在其中执行的当前上下文。</td>
+</tr>
+<tr>
+<td style="text-align:left">CurrentCulture</td>
+<td style="text-align:left">获取或设置当前线程的区域性。</td>
+</tr>
+<tr>
+<td style="text-align:left">CurrentPrincipal</td>
+<td style="text-align:left">获取或设置线程的当前负责人（对基于角色的安全性而言）。</td>
+</tr>
+<tr>
+<td style="text-align:left">CurrentThread</td>
+<td style="text-align:left">获取当前正在运行的线程。</td>
+</tr>
+<tr>
+<td style="text-align:left">CurrentUICulture</td>
+<td style="text-align:left">获取或设置资源管理器使用的当前区域性以便在运行时查找区域性特定的资源。</td>
+</tr>
+<tr>
+<td style="text-align:left">ExecutionContext</td>
+<td style="text-align:left">获取一个 ExecutionContext 对象，该对象包含有关当前线程的各种上下文的信息。</td>
+</tr>
+<tr>
+<td style="text-align:left">IsAlive</td>
+<td style="text-align:left">获取一个值，该值指示当前线程的执行状态。</td>
+</tr>
+<tr>
+<td style="text-align:left">IsBackground</td>
+<td style="text-align:left">获取或设置一个值，该值指示某个线程是否为后台线程。</td>
+</tr>
+<tr>
+<td style="text-align:left">IsThreadPoolThread</td>
+<td style="text-align:left">获取一个值，该值指示线程是否属于托管线程池。</td>
+</tr>
+<tr>
+<td style="text-align:left">ManagedThreadId</td>
+<td style="text-align:left">获取当前托管线程的唯一标识符。</td>
+</tr>
+<tr>
+<td style="text-align:left">Name</td>
+<td style="text-align:left">获取或设置线程的名称。</td>
+</tr>
+<tr>
+<td style="text-align:left">Priority</td>
+<td style="text-align:left">获取或设置一个值，该值指示线程的调度优先级。</td>
+</tr>
+<tr>
+<td style="text-align:left">ThreadState</td>
+<td style="text-align:left">获取一个值，该值包含当前线程的状态。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>下表列出了 <strong>Thread</strong> 类的一些常用的 <strong>方法</strong>：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">序号</th>
+<th style="text-align:left">方法名 &amp; 描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left"><strong>public void Abort()</strong> 在调用此方法的线程上引发 ThreadAbortException，以开始终止此线程的过程。调用此方法通常会终止线程。</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left"><strong>public static LocalDataStoreSlot AllocateDataSlot()</strong> 在所有的线程上分配未命名的数据槽。为了获得更好的性能，请改用以 ThreadStaticAttribute 属性标记的字段。</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left"><strong>public static LocalDataStoreSlot AllocateNamedDataSlot( string name)</strong> 在所有线程上分配已命名的数据槽。为了获得更好的性能，请改用以 ThreadStaticAttribute 属性标记的字段。</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left"><strong>public static void BeginCriticalRegion()</strong> 通知主机执行将要进入一个代码区域，在该代码区域内线程中止或未经处理的异常的影响可能会危害应用程序域中的其他任务。</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left"><strong>public static void BeginThreadAffinity()</strong> 通知主机托管代码将要执行依赖于当前物理操作系统线程的标识的指令。</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left"><strong>public static void EndCriticalRegion()</strong> 通知主机执行将要进入一个代码区域，在该代码区域内线程中止或未经处理的异常仅影响当前任务。</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left"><strong>public static void EndThreadAffinity()</strong> 通知主机托管代码已执行完依赖于当前物理操作系统线程的标识的指令。</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left"><strong>public static void FreeNamedDataSlot(string name)</strong> 为进程中的所有线程消除名称与槽之间的关联。为了获得更好的性能，请改用以 ThreadStaticAttribute 属性标记的字段。</td>
+</tr>
+<tr>
+<td style="text-align:left">9</td>
+<td style="text-align:left"><strong>public static Object GetData( LocalDataStoreSlot slot )</strong> 在当前线程的当前域中从当前线程上指定的槽中检索值。为了获得更好的性能，请改用以 ThreadStaticAttribute 属性标记的字段。</td>
+</tr>
+<tr>
+<td style="text-align:left">10</td>
+<td style="text-align:left"><strong>public static AppDomain GetDomain()</strong> 返回当前线程正在其中运行的当前域。</td>
+</tr>
+<tr>
+<td style="text-align:left">11</td>
+<td style="text-align:left"><strong>public static AppDomain GetDomainID()</strong> 返回唯一的应用程序域标识符。</td>
+</tr>
+<tr>
+<td style="text-align:left">12</td>
+<td style="text-align:left"><strong>public static LocalDataStoreSlot GetNamedDataSlot( string name )</strong> 查找已命名的数据槽。为了获得更好的性能，请改用以 ThreadStaticAttribute 属性标记的字段。</td>
+</tr>
+<tr>
+<td style="text-align:left">13</td>
+<td style="text-align:left"><strong>public void Interrupt()</strong> 中断处于 WaitSleepJoin 线程状态的线程。</td>
+</tr>
+<tr>
+<td style="text-align:left">14</td>
+<td style="text-align:left"><strong>public void Join()</strong> 在继续执行标准的 COM 和 SendMessage 消息泵处理期间，阻塞调用线程，直到某个线程终止为止。此方法有不同的重载形式。</td>
+</tr>
+<tr>
+<td style="text-align:left">15</td>
+<td style="text-align:left"><strong>public static void MemoryBarrier()</strong> 按如下方式同步内存存取：执行当前线程的处理器在对指令重新排序时，不能采用先执行 MemoryBarrier 调用之后的内存存取，再执行 MemoryBarrier 调用之前的内存存取的方式。</td>
+</tr>
+<tr>
+<td style="text-align:left">16</td>
+<td style="text-align:left"><strong>public static void ResetAbort()</strong> 取消为当前线程请求的 Abort。</td>
+</tr>
+<tr>
+<td style="text-align:left">17</td>
+<td style="text-align:left"><strong>public static void SetData( LocalDataStoreSlot slot, Object data )</strong> 在当前正在运行的线程上为此线程的当前域在指定槽中设置数据。为了获得更好的性能，请改用以 ThreadStaticAttribute 属性标记的字段。</td>
+</tr>
+<tr>
+<td style="text-align:left">18</td>
+<td style="text-align:left"><strong>public void Start()</strong> 开始一个线程。</td>
+</tr>
+<tr>
+<td style="text-align:left">19</td>
+<td style="text-align:left"><strong>public static void Sleep( int millisecondsTimeout )</strong> 让线程暂停一段时间。</td>
+</tr>
+<tr>
+<td style="text-align:left">20</td>
+<td style="text-align:left"><strong>public static void SpinWait( int iterations )</strong> 导致线程等待由 iterations 参数定义的时间量。</td>
+</tr>
+<tr>
+<td style="text-align:left">21</td>
+<td style="text-align:left"><strong>public static byte VolatileRead( ref byte address ) public static double VolatileRead( ref double address ) public static int VolatileRead( ref int address ) public static Object VolatileRead( ref Object address )</strong> 读取字段值。无论处理器的数目或处理器缓存的状态如何，该值都是由计算机的任何处理器写入的最新值。此方法有不同的重载形式。这里只给出了一些形式。</td>
+</tr>
+<tr>
+<td style="text-align:left">22</td>
+<td style="text-align:left"><strong>public static void VolatileWrite( ref byte address, byte value ) public static void VolatileWrite( ref double address, double value ) public static void VolatileWrite( ref int address, int value ) public static void VolatileWrite( ref Object address, Object value )</strong> 立即向字段写入一个值，以使该值对计算机中的所有处理器都可见。此方法有不同的重载形式。这里只给出了一些形式。</td>
+</tr>
+<tr>
+<td style="text-align:left">23</td>
+<td style="text-align:left"><strong>public static bool Yield()</strong> 导致调用线程执行准备好在当前处理器上运行的另一个线程。由操作系统选择要执行的线程。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h3><p> ThreadPool.QueueUserWorkItem</p>
+<h3 id="Task方式创建线程"><a href="#Task方式创建线程" class="headerlink" title="Task方式创建线程"></a>Task方式创建线程</h3><p>  Task.Factory.StartNew(() =&gt;<br>  {<br>  });</p>
+<h2 id="Razor-标记"><a href="#Razor-标记" class="headerlink" title="Razor 标记"></a>Razor 标记</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">//语句</span><br><span class="line">&#125;</span><br><span class="line">@变量名</span><br></pre></td></tr></table></figure>
+<h3 id="内容块"><a href="#内容块" class="headerlink" title="内容块"></a>内容块</h3><p><strong>@RenderPage(“header.cshtml”)</strong></p>
+<h3 id="布局页"><a href="#布局页" class="headerlink" title="布局页"></a>布局页</h3><p> <strong>@RenderBody()</strong> 方法嵌入内容页</p>
+<p><strong>@{Layout=”Layout.cshtml”;}</strong></p>
+<p>传参</p>
+<p>viewModel</p>
+<p>viewBag</p>
+<p>ViewData</p>
+<p>wpf</p>
+<h2 id="Linq"><a href="#Linq" class="headerlink" title="Linq"></a>Linq</h2><p>筛选、排序和分组</p>
+<p> IEnumerable：公开枚举器，该枚举器支持对指定类型的集合进行简单迭代。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Where、Select、GroupBy、Join、Max和 Average</span><br></pre></td></tr></table></figure>
+<p>Where</p>
+<p>Select</p>
+<h2 id="DistinctBy"><a href="#DistinctBy" class="headerlink" title="DistinctBy"></a>DistinctBy</h2><h2 id="ExceptBy"><a href="#ExceptBy" class="headerlink" title="ExceptBy"></a>ExceptBy</h2><h2 id="IntersectBy"><a href="#IntersectBy" class="headerlink" title="IntersectBy"></a><code>IntersectBy</code></h2><h2 id="UnionBy"><a href="#UnionBy" class="headerlink" title="UnionBy"></a><code>UnionBy</code></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">orderby</span><br></pre></td></tr></table></figure>
+<p>OrderByDescending</p>
+<p>ThenBy</p>
+<p>ThenByDescending</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">All</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Any</span><br></pre></td></tr></table></figure>
+<p>Contains</p>
+<p>Take         只要3个</p>
+<p>Skip        跳过3个</p>
+<p>TakeWhile</p>
+<p>SkipWhile</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Chunk</span><br></pre></td></tr></table></figure>
+<p>转换类型</p>
+<h1 id="Join"><a href="#Join" class="headerlink" title="Join"></a>Join</h1><p>GroupJoin</p>
+</article><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/d1d368d3/" title="运维监控"><img class="cover" src="/images/default_top.jpg" onerror="onerror=null;src='/images/404.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">运维监控</div></div></a></div><div class="next-post pull-right"><a href="/posts/96a41905/" title="SpringCloud"><img class="cover" src="/images/default_top.jpg" onerror="onerror=null;src='/images/404.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">SpringCloud</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/images/flink_error.png" onerror="this.onerror=null;this.src='/images/flink_error.png'" alt="avatar"/></div><div class="author-info__name">筱筱</div><div class="author-info__description">记录笔记和日常的地方</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">66</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">59</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn"></i><span>公告</span></div><div class="announcement_content">本站大部分资源来源于网络，仅供学习和交流。部分文章采取AI内容，请注意辨别安全和真实性。还请注意技术与插件的版本和时效性。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#asp-net"><span class="toc-number">1.</span> <span class="toc-text">asp.net</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%80%BC%E7%B1%BB%E5%9E%8B%EF%BC%88Value-types%EF%BC%89"><span class="toc-number">1.1.1.</span> <span class="toc-text">值类型（Value types）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B%EF%BC%88Reference-types%EF%BC%89"><span class="toc-number">1.1.2.</span> <span class="toc-text">引用类型（Reference types）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%88String%EF%BC%89%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">字符串（String）类型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E9%92%88%E7%B1%BB%E5%9E%8B%EF%BC%88Pointer-types%EF%BC%89"><span class="toc-number">1.1.3.</span> <span class="toc-text">指针类型（Pointer types）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">1.2.</span> <span class="toc-text">变量的作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E4%BF%AE%E9%A5%B0%E7%AC%A6"><span class="toc-number">1.3.</span> <span class="toc-text">访问修饰符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="toc-number">1.4.</span> <span class="toc-text">参数传递</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%EF%BC%9F%E5%92%8C%EF%BC%9F%EF%BC%9F"><span class="toc-number">1.5.</span> <span class="toc-text">？和？？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">1.6.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#struct-%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-number">1.7.</span> <span class="toc-text">struct 结构体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#enum-%E6%9E%9A%E4%B8%BE"><span class="toc-number">1.8.</span> <span class="toc-text">enum 枚举</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="toc-number">1.9.</span> <span class="toc-text">访问标识符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="toc-number">1.10.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0"><span class="toc-number">1.11.</span> <span class="toc-text">析构函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF"><span class="toc-number">1.12.</span> <span class="toc-text">继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E6%80%81"><span class="toc-number">1.13.</span> <span class="toc-text">多态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E7%B1%BBabstract"><span class="toc-number">1.14.</span> <span class="toc-text">抽象类abstract</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%96%B9%E6%B3%95virtual"><span class="toc-number">1.15.</span> <span class="toc-text">虚方法virtual</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#override"><span class="toc-number">1.16.</span> <span class="toc-text">override</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E5%A4%84%E7%90%86%E6%8C%87%E4%BB%A4"><span class="toc-number">1.17.</span> <span class="toc-text">预处理指令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#define-%E5%92%8C-undef-%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-number">3.</span> <span class="toc-text">define 和 #undef 预处理器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#define-%E7%94%A8%E4%BA%8E%E5%AE%9A%E4%B9%89%E7%AC%A6%E5%8F%B7%EF%BC%88%E9%80%9A%E5%B8%B8%E7%94%A8%E4%BA%8E%E6%9D%A1%E4%BB%B6%E7%BC%96%E8%AF%91%EF%BC%89%EF%BC%8C-undef-%E7%94%A8%E4%BA%8E%E5%8F%96%E6%B6%88%E5%AE%9A%E4%B9%89%E7%AC%A6%E5%8F%B7%E3%80%82"><span class="toc-number">4.</span> <span class="toc-text">define 用于定义符号（通常用于条件编译），#undef 用于取消定义符号。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#define-DEBUG"><span class="toc-number">5.</span> <span class="toc-text">define DEBUG</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#if-DEBUG"><span class="toc-number">6.</span> <span class="toc-text">if DEBUG</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#elif-RELEASE"><span class="toc-number">7.</span> <span class="toc-text">elif RELEASE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#else"><span class="toc-number">8.</span> <span class="toc-text">else</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#endif"><span class="toc-number">9.</span> <span class="toc-text">endif</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#warning-%E5%92%8C-error"><span class="toc-number">10.</span> <span class="toc-text">warning 和 #error</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#warning-%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%90%E7%BC%96%E8%AF%91%E5%99%A8%E8%AD%A6%E5%91%8A%EF%BC%8C-error-%E7%94%A8%E4%BA%8E%E7%94%9F%E6%88%90%E7%BC%96%E8%AF%91%E5%99%A8%E9%94%99%E8%AF%AF%E3%80%82"><span class="toc-number">11.</span> <span class="toc-text">warning 用于生成编译器警告，#error 用于生成编译器错误。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#region-%E5%92%8C-endregion"><span class="toc-number">12.</span> <span class="toc-text">region 和 #endregion</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#line"><span class="toc-number">13.</span> <span class="toc-text">line</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pragma"><span class="toc-number">14.</span> <span class="toc-text">pragma</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86"><span class="toc-number">14.1.</span> <span class="toc-text">异常处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%9A%84%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA"><span class="toc-number">14.2.</span> <span class="toc-text">文件的输入与输出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#FileStream"><span class="toc-number">14.2.1.</span> <span class="toc-text">FileStream</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%80%A7%EF%BC%88Attribute%EF%BC%89"><span class="toc-number">14.3.</span> <span class="toc-text">特性（Attribute）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%EF%BC%88Reflection%EF%BC%89"><span class="toc-number">14.4.</span> <span class="toc-text">反射（Reflection）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#type"><span class="toc-number">14.4.1.</span> <span class="toc-text">type</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#System-Reflection-Assembly-%E7%B1%BB"><span class="toc-number">14.4.2.</span> <span class="toc-text">System.Reflection.Assembly 类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BindingFlags-%E6%8C%87%E5%AE%9A%E5%8F%8D%E5%B0%84%E6%9F%A5%E6%89%BE%E8%8C%83%E5%9B%B4"><span class="toc-number">14.4.3.</span> <span class="toc-text">BindingFlags 指定反射查找范围</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E5%80%BC%EF%BC%9A"><span class="toc-number">14.4.3.1.</span> <span class="toc-text">默认值：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%EF%BC%9A"><span class="toc-number">14.4.3.2.</span> <span class="toc-text">查找：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B4%A2%E5%BC%95%E5%99%A8%EF%BC%88Indexer%EF%BC%89"><span class="toc-number">14.5.</span> <span class="toc-text">索引器（Indexer）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A7%94%E6%89%98%EF%BC%88Delegate%EF%BC%89"><span class="toc-number">14.6.</span> <span class="toc-text">委托（Delegate）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A7%94%E6%89%98%E7%9A%84%E5%A4%9A%E6%92%AD"><span class="toc-number">14.6.1.</span> <span class="toc-text">委托的多播</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%8F%90%E4%BE%9B%E5%A7%94%E6%89%98%E6%96%B9%E6%B3%95"><span class="toc-number">14.6.2.</span> <span class="toc-text">系统提供委托方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6"><span class="toc-number">14.7.</span> <span class="toc-text">事件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E5%90%88"><span class="toc-number">14.8.</span> <span class="toc-text">集合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E6%96%B9%E6%B3%95Lambda"><span class="toc-number">14.9.</span> <span class="toc-text">匿名方法Lambda</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B"><span class="toc-number">14.10.</span> <span class="toc-text">多线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Thread-%E7%B1%BB%E5%B8%B8%E7%94%A8%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E6%96%B9%E6%B3%95"><span class="toc-number">14.11.</span> <span class="toc-text">Thread 类常用的属性和方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-number">14.11.1.</span> <span class="toc-text">线程池</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Task%E6%96%B9%E5%BC%8F%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B"><span class="toc-number">14.11.2.</span> <span class="toc-text">Task方式创建线程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Razor-%E6%A0%87%E8%AE%B0"><span class="toc-number">14.12.</span> <span class="toc-text">Razor 标记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E5%9D%97"><span class="toc-number">14.12.1.</span> <span class="toc-text">内容块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%83%E5%B1%80%E9%A1%B5"><span class="toc-number">14.12.2.</span> <span class="toc-text">布局页</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Linq"><span class="toc-number">14.13.</span> <span class="toc-text">Linq</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DistinctBy"><span class="toc-number">14.14.</span> <span class="toc-text">DistinctBy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ExceptBy"><span class="toc-number">14.15.</span> <span class="toc-text">ExceptBy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IntersectBy"><span class="toc-number">14.16.</span> <span class="toc-text">IntersectBy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UnionBy"><span class="toc-number">14.17.</span> <span class="toc-text">UnionBy</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Join"><span class="toc-number">15.</span> <span class="toc-text">Join</span></a></li></ol></div></div></div></div></main><footer id="footer" style="background: #b4c195"><div id="footer-wrap"><div class="copyright">&copy;2024 - 2026 By 筱筱</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js?v=5.0.32"></script><div class="js-pjax"></div><script id="click-heart" src="/pluginsSrc/butterfly-extsrc/dist/click-heart.min.js?v=1.1.3" async="async" mobile="false"></script><script src="/pluginsSrc/pjax/pjax.min.js?v=0.2.8"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.12.0"></script></div></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_swiper_injector_config(){
+    var parent_div_git = document.getElementById('recent-posts');
+    var item_html = '<div class="recent-post-item" style="height: auto;width: 100%"><div class="blog-slider swiper-container-fade swiper-container-horizontal" id="swiper_container"><div class="blog-slider__wrp swiper-wrapper" style="transition-duration: 0ms;"><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/54667693/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/images/cover/1.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-02-16</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/54667693/&quot;);" href="javascript:void(0);" alt="">标签外挂</a><div class="blog-slider__text">标签外挂语法+效果</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/54667693/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div><div class="blog-slider__item swiper-slide" style="width: 750px; opacity: 1; transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;"><a class="blog-slider__img" onclick="pjax.loadUrl(&quot;posts/576c43d4/&quot;);" href="javascript:void(0);" alt=""><img width="48" height="48" src="/images/cover/2.jpg" alt="" onerror="this.src=https://unpkg.zhimg.com/akilar-candyassets/image/loading.gif; this.onerror = null;"/></a><div class="blog-slider__content"><span class="blog-slider__code">2024-02-18</span><a class="blog-slider__title" onclick="pjax.loadUrl(&quot;posts/576c43d4/&quot;);" href="javascript:void(0);" alt="">快捷键</a><div class="blog-slider__text">常用的快捷键</div><a class="blog-slider__button" onclick="pjax.loadUrl(&quot;posts/576c43d4/&quot;);" href="javascript:void(0);" alt="">详情       </a></div></div></div><div class="blog-slider__pagination swiper-pagination-clickable swiper-pagination-bullets"></div></div></div>';
+    console.log('已挂载butterfly_swiper')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'undefined'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_swiper_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_swiper_injector_config();
+  }
+  </script><script defer src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper.min.js"></script><script defer data-pjax src="https://npm.elemecdn.com/hexo-butterfly-swiper/lib/swiper_init.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
